@@ -1,0 +1,76 @@
+{% extends 'website/layout2.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | Delete Update
+        {% endblock %}
+    </title>
+</head>
+{% block body %}
+
+    <div class="max-width">
+        <div class="specificidea">
+            <div class="delete-confirm">
+                <h1>Your Update of "{{ subpost.title }}" is about to be deleted. Are You Sure?</h1>
+                <br>
+                <hr>
+                <br>
+                <br>
+                <p>{{ subpost.post|safe }}</p>
+                <br>
+                {% if subpost.image1 %}
+                    <img src="{{ subpost.image1.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image1" class="idea-image">
+                    <div id="myModal1" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01" src="{{ subpost.image1.url }}">
+                    </div>
+                {% endif %}
+                {% if subpost.image2 %}
+                    <img src="{{ subpost.image2.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image2" class="idea-image">
+                    <div id="myModal2" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01" src="{{ subpost.image2.url }}">
+                    </div>
+                {% endif %}
+                {% if subpost.image3 %}
+                    <img src="{{ subpost.image3.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image3" class="idea-image">
+                    <div id="myModal3" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01" src="{{ subpost.image3.url }}">
+                    </div>
+                {% endif %}
+                {% if subpost.image4 %}
+                    <img src="{{ subpost.image4.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image4" class="idea-image">
+                    <div id="myModal4" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01" src="{{ subpost.image4.url }}">
+                    </div>
+                {% endif %}
+                {% if subpost.image5 %}
+                    <img src="{{ subpost.image5.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image5" class="idea-image">
+                    <div id="myModal5" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01" src="{{ subpost.image5.url }}">
+                    </div>
+                {% endif %}
+                <br>
+                <p>{{ subpost.timestamp|naturaltime }}</p>
+                <br>
+                <hr>
+                <div class="delete-options">
+                    <form method="POST" action="{% url 'deletesubpost' subpost.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-idea-btn">Confirm Delete</button>
+                    </form>
+                    <button onclick="goBack()" class="delete-undo">Undo</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock %}

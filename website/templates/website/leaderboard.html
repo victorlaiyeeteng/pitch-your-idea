@@ -1,0 +1,108 @@
+{% extends 'website/layout2.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+{% load multifor %}
+{% load post_tags %}
+
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | Leaderboard
+        {% endblock %}
+    </title>
+</head>
+{% block body %}
+
+    <div class="max-width">
+        <div class="ideaboard">
+            <h2>Leaderboard</h2>
+            <br>
+            <hr>
+            <br>
+            <a href="{% url 'idea' post1.id %}" style="display: block;">
+                <div class='idea1st' style="background-color: rgba(255, 217, 0, 0.178);">
+                    <br>
+                    <li style="list-style: none; color: black;">
+                        <h4> <i class="fas fa-crown" style="color: #ffd700; font-size: 33px;"></i> {{ post1.title }}</h4>
+                        <div class='idea-content'><p>{{ post1.post|safe }}</p></div>
+                        <ul class='idea-details' style="text-align: left;">
+                                <li><h6 style="font-style: oblique; font-size: 17px;">{{ post1.category }}</h6></li>
+                                <br>
+                                <li><h5>{{ post1.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 23px;"></i></h5></li>
+                                <li><h6>{{ post1.comments.all.count }} <i class="far fa-comment" style="font-size: 22px;"></i></h6></li>
+                        </ul>
+                        <ul style="text-align: right;">
+                            <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{ post1.timestamp|naturaltime }}</p></li>
+                        </ul>
+                        
+                    </li>
+                    <br>
+                </div>
+            </a>
+            <a href="{% url 'idea' post2.id %}" style="display: block;">
+                <div class='idea2nd' style="background-color: rgba(192, 192, 192, 0.26);">
+                    <br>
+                    <li style="list-style: none; color: black;">
+                        <h4> <i class="fas fa-crown" style="color: #BBC2CC; font-size: 31px;"></i> {{ post2.title }}</h4>
+                        <div class='idea-content'><p>{{ post2.post|safe }}</p></div>
+                        <ul class='idea-details' style="text-align: left;">
+                                <li><h6 style="font-style: oblique; font-size: 17px;">{{ post2.category }}</h6></li>
+                                <br>
+                                <li><h5>{{ post2.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 23px;"></i></h5></li>
+                                <li><h6>{{ post2.comments.all.count }} <i class="far fa-comment" style="font-size: 22px;"></i></h6></li>
+                        </ul>
+                        <ul style="text-align: right;">
+                            <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{ post2.timestamp|naturaltime }}</p></li>
+                        </ul>
+                        
+                    </li>
+                    <br>
+                </div>
+            </a>
+            <a href="{% url 'idea' post3.id %}" style="display: block;">
+                <div class='idea3rd' style="background-color: #d67a1036;">
+                    <br>
+                    <li style="list-style: none; color: black;">
+                        <h4> <i class="fas fa-crown" style="color: #E4953C; font-size: 29px;"></i> {{ post3.title }}</h4>
+                        <div class='idea-content'><p>{{ post3.post|safe }}</p></div>
+                        <ul class='idea-details' style="text-align: left;">
+                                <li><h6 style="font-style: oblique; font-size: 17px;">{{ post3.category }}</h6></li>
+                                <br>
+                                <li><h5>{{ post3.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 23px;"></i></h5></li>
+                                <li><h6>{{ post3.comments.all.count }} <i class="far fa-comment" style="font-size: 22px;"></i></h6></li>
+                        </ul>
+                        <ul style="text-align: right;">
+                            <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{ post3.timestamp|naturaltime }}</p></li>
+                        </ul>
+                        
+                    </li>
+                    <br>
+                </div>
+            </a>
+            {% for post in postsremaining %}
+                <a href="{% url 'idea' post.id %}" style="display: block;">
+                    <div class='idea'>
+                        <br>
+                        <li style="list-style: none; color: black;">
+                            <h4>{{ post.title }}</h4>
+                            <div class='idea-content'><p>{{ post.post|safe }}</p></div>
+                            <ul class='idea-details' style="text-align: left;">
+                                    <li><h6 style="font-style: oblique; font-size: 17px;">{{ post.category }}</h6></li>
+                                    <br>
+                                    <li><h5>{{ post.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 23px;"></i></h5></li>
+                                    <li><h6>{{ post.comments.all.count }} <i class="far fa-comment" style="font-size: 22px;"></i></h6></li>
+                            </ul>
+                            <ul style="text-align: right;">
+                                <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{ post.timestamp|naturaltime }}</p></li>
+                            </ul>
+                            
+                        </li>
+                        <br>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'website/layout2.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | Ideas Board
+        {% endblock %}
+    </title>
+</head>
+{% block body %}
+
+    <div class="max-width">
+        <div class="ideaboard">
+            <h2>Idea Board</h2>
+            <br>
+            <hr>
+            <br>
+            <ul>
+                {% for post in ideas %}
+                <a href="{% url 'idea' post.id %}" style="display: block;">
+                    <div class='idea'>
+                        <br>
+                        <li style="list-style: none; color: black;">
+                            <h4>{{ post.title }}</h4>
+                            <div class='idea-content'><p>{{ post.post|safe }}</p></div>
+                            <ul class='idea-details' style="text-align: left;">
+                                    <li><h6 style="font-style: oblique; font-size: 18px;">{{ post.category }}</h6></li>
+                                    <br>
+                                    <li><h5 title="Likes">{{ post.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 24px;"></i></h5></li>
+                                    <li><h6 title="Comments">{{ post.comments.all.count }} <i class="far fa-comment" style="font-size: 23px;"></i></h6></li>
+                                    <li><h6 style="font-weight: 600;" title="Tracks">{{ post.favourited.all.count }} <i class="fas fa-chart-line" style="font-size: 23px;"></i></h6></li>
+                            </ul>
+                            <ul style="text-align: right;">
+                                <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{post.editedtrue}} {{ post.timestamp|naturaltime }}</p></li>
+                            </ul>
+                            
+                        </li>
+                        <br>
+                    </div>
+                </a>
+                {% endfor %}
+            </ul>
+            
+            <div style="text-align: center; justify-content: center;">
+                <nav aria-label="Page Navigation">
+                    <ul class="pagination">
+                        {% if ideas.has_previous %}
+                            <li class="page-item">
+                                <a href="?page={{ideas.previous_page_number}}" class="page-link">Previous</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item-disabled">
+                                <a href="#" class="page-link" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                        {% endif %}
+                        {% for i in ideas.paginator.page_range %}
+                            {% if ideas.number == i %}
+                                <li class="page-item-active" aria-current="page">
+                                    <span class="page-link">
+                                        {{ i }}
+                                        <span class="sr-only">(current)</span>
+                                    </span>
+                                </li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if ideas.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ ideas.next_page_number }}">Next</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item-disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+                                </li>
+                            {% endif %}
+                    </ul>
+                </nav>
+            </div>
+                
+            
+            
+        </div>
+    </div>
+
+{% endblock %}

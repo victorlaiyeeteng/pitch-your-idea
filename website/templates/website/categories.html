@@ -1,0 +1,32 @@
+{% extends 'website/layout2.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+{% load multifor %}
+
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | Categories
+        {% endblock %}
+    </title>
+</head>
+{% block body %}
+
+    <div class="max-width">
+        <div class="categories">
+            <h2>Categories</h2>
+            <br>
+            <hr>
+            <br>
+            {% for category in category_names; icon in category_icons %}
+                <a href="{% url 'category' category %}">
+                    <div class="category-name">
+                        <p><i class="fas fa-{{icon}}" style="font-size: 23px;"></i> {{ category }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

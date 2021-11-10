@@ -1,0 +1,128 @@
+{% extends 'website/layout2.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | {{ post.title }}
+        {% endblock %}
+    </title>
+</head>
+
+{% block body %}
+
+    <div class="max-width">
+        <div class="specificidea">
+            <div class="post" style="background-color: rgba(235, 235, 235, 0.349); padding:2% 3% 2% 3%; margin-bottom: 2%; margin-top: -2%;">
+                <form action="" method="POST" enctype="multipart/form-data" style="font-size: 18px;">
+                    {% csrf_token %}
+                    {{ form.media }}
+                    {{ form.as_p }}
+                    <br>
+                    <input type="submit" value="Update" class='updatebtn'>
+                </form>    
+            </div>
+            <div class="specificidea-heading">
+                <div class="heading-left">
+                    <h1>{{ post.title }}</h1>
+                    <br>
+                    <h5 style="font-style: italic;">{{ post.user.username }}</h5>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <h4>Category: <span style="font-weight:500;">{{ post.category }}</span></h4>
+            <br>
+            <br>
+            <p>{{ post.post|safe }}</p>
+            {% if post.image1 %}
+                <img src="{{ post.image1.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image1" class="idea-image">
+                <div id="myModal1" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01" src="{{ post.image1.url }}">
+                </div>
+            {% endif %}
+            {% if post.image2 %}
+                <img src="{{ post.image2.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image2" class="idea-image">
+                <div id="myModal2" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01" src="{{ post.image2.url }}">
+                </div>
+            {% endif %}
+            {% if post.image3 %}
+                <img src="{{ post.image3.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image3" class="idea-image">
+                <div id="myModal3" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01" src="{{ post.image3.url }}">
+                </div>
+            {% endif %}
+            {% if post.image4 %}
+                <img src="{{ post.image4.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image4" class="idea-image">
+                <div id="myModal4" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01" src="{{ post.image4.url }}">
+                </div>
+            {% endif %}
+            {% if post.image5 %}
+                <img src="{{ post.image5.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image5" class="idea-image">
+                <div id="myModal5" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01" src="{{ post.image5.url }}">
+                </div>
+            {% endif %}
+            <br>
+            <br>
+            <p style="font-size: 14px; font-style: italic;">{{post.editedtrue}} {{ post.timestamp|naturaltime }}</p>
+            <hr style="display: block; height: 1px; border: 0; border-top: 1px solid rgba(211, 211, 211, 0.815);margin-top: 0.2px;">
+            <br>
+            <div class="subposts">
+                <h2>Updates</h2>
+                <br>
+                {% for subpost in subposts %}
+                    <div class="subpost">
+                        <h3>{{ subpost.title }}</h3>
+                        <br>
+                        <p>{{ subpost.post|safe }}</p>
+                        {% if subpost.image1 %}
+                            <img src="{{ subpost.image1.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image1" class="idea-image">
+                            <div id="myModal1" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01" src="{{ subpost.image1.url }}">
+                            </div>
+                        {% endif %}
+                        {% if subpost.image2 %}
+                            <img src="{{ subpost.image2.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image2" class="idea-image">
+                            <div id="myModal2" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01" src="{{ subpost.image2.url }}">
+                            </div>
+                        {% endif %}
+                        {% if subpost.image3 %}
+                            <img src="{{ subpost.image3.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image3" class="idea-image">
+                            <div id="myModal3" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01" src="{{ subpost.image3.url }}">
+                            </div>
+                        {% endif %}
+                        {% if subpost.image4 %}
+                            <img src="{{ subpost.image4.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image4" class="idea-image">
+                            <div id="myModal4" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01" src="{{ subpost.image4.url }}">
+                            </div>
+                        {% endif %}
+                        {% if subpost.image5 %}
+                            <img src="{{ subpost.image5.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image5" class="idea-image">
+                            <div id="myModal5" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01" src="{{ subpost.image5.url }}">
+                            </div>
+                        {% endif %}
+                        <p style="font-size: 14px; font-style: italic; padding: 0.5% 0% 0.5% 0%;">{{ subpost.timestamp|naturaltime }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+{% endblock %}

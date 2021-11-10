@@ -1,0 +1,139 @@
+{% extends 'website/layout2.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+{% load post_tags %}
+
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | Chat: {{other_user.username}}
+        {% endblock %}
+    </title>
+</head>
+
+
+{% block body %}
+        
+        <div class="max-width">
+            <div class="allchats">
+                <div class="chatslist">
+                    <div class="allchatheading" style="font-size: 27px; padding: 8% 0% 10% 7%;">
+                        <h2>All Chats</h2>
+                    </div>
+                    <div style="height: 77vh; overflow: scroll;">
+                        {% for chat in chats %}
+                            {% if chat.visitor.id != request.user.id or chat.owner.id != request.user.id %}
+                                {% if request.user == chat.owner %}
+                                    {% url 'chatroom' chat.post.id chat.visitor.id request.user.id as selecturl %}
+                                    <a href="{% url 'chatroom' chat.post.id chat.visitor.id request.user.id%}">
+                                        <div class="specificchat">
+                                            <p style="font-size: 23px;font-weight: 700; padding-bottom: 3%;">{{chat.visitor.username}}</p>
+                                            <p style="font-size: 20px; font-weight: 400; padding-left: 2%;">{{chat.post.title}} <span style="font-size: 14px; font-weight: normal;">[your idea]</span></p>
+                                            <p style="font-size: 16px; padding: 1% 0% 0% 3%; font-style: italic;">{% if chat.lastsent != request.user %}{{chat.notification}}{% endif %}</p>
+                                            </div>
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'chatroom' chat.post.id chat.owner.id request.user.id %}">
+                                        <div class="specificchat">
+                                            <p style="font-size: 23px;font-weight: 700; padding-bottom: 3%;">{{chat.owner.username}}</p>
+                                            <p style="font-size: 20px; font-weight: 400; padding-left: 2%;">{{chat.post.title}}</p>
+                                            <p style="font-size: 16px; padding: 1% 0% 0% 3%; font-style: italic;">{% if chat.lastsent != request.user %}{{chat.notification}}{% endif %}</p>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+                <div class="chat">
+                    <div class="chatheading">
+                        <h4 style="padding-left: 3%;"><span style="font-size: 29px; font-weight: 600;">{{other_user.username}}</span><br><span style="font-size: 23px; font-weight: 400;"> <a href="{% url 'idea' post.id %}" title="Idea Details">{{post.title}}</a></span></h4>
+                    </div>
+                    <div class="container-fluid">
+                            <div class="messages-area">
+                                {% for message in messages %}
+                                <div class="message 
+                                {% if message.sender == request.user %}right{% else %}left{% endif %}
+                                ">
+                                    <div class="sent-by" style="font-size: 18px;">{{ message.sender.username }} <span style="font-size: 16px;">- {{ message.date_created|naturaltime }}</span></div>
+                                    <div class="content" style="font-size: 19.5px;">{{ message.message }}</div>
+                                    
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="input-area">
+                                <input type="textarea" id="message-input" style="font-size: 19.5px; word-wrap: break-word;">
+                                <button id="send-btn"><i class="fa fa-send"></i></button>
+                            </div>
+                    </div>
+                </div>
+                
+        
+            </div>
+        </div>
+
+    <script>
+        
+        $('.messages-area').scrollTop($('.messages-area')[0].scrollHeight);
+        window.addEventListener("DOMContentLoaded", function(event){
+            let message_send_btn = document.getElementById("send-btn");
+            let message_input = document.getElementById("message-input");
+            function send_message(){
+                let message = message_input.value;
+                if(message === ""){
+                    return;
+                }
+                message_input.value = "";
+                fetch("{% url 'chatroom-ajax' post.id other_user.id %}", 
+                {
+                    method:"POST", 
+                    credentials: 'same-origin', 
+                    headers: {
+                        "Content-Type": 'application/json', 
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify(message)
+                }
+                ).then(e => e.json()).then(messages => {
+                    for (message of messages){
+                        construct_message(message);
+                    }
+                });
+            }
+            function load_messages(){
+                fetch("{% url 'chatroom-ajax' post.id other_user.id %}")
+                    .then(e => e.json())
+                    .then( messages => {
+                        for (message of messages) {
+                            construct_message(message);
+                        }
+                    })
+            }
+            function construct_message(message){
+                let messages_container = document.querySelector(".messages-area");
+                let class_name = "left"
+                if (message.sent){
+                    class_name = "right"
+                }
+                let div = document.createElement('div');
+                div.classList.add("message", class_name);
+                div.innerHTML = `
+                <div class="sent-by" style="font-size:18px;">${ message.sender } <span style="font-size: 16px;">- Just Now</span></div>
+                        <div class="content" style="font-size:19.5px;">${ message.message }</div>
+                        <br>
+                `
+                messages_container.appendChild(div);
+                div.scrollIntoView();
+            }
+            message_send_btn.addEventListener('click', send_message);
+            message_input.addEventListener('keypress', function(e){
+                if (e.key == 'Enter'){
+                    send_message();
+                }
+            })
+            setInterval(load_messages, 2000);
+        })
+    </script>
+{% endblock %}

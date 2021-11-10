@@ -1,0 +1,30 @@
+{% extends 'website/layout2.html' %}
+{% load static %}
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | Post Idea
+        {% endblock %}
+    </title>
+</head>
+
+{% block body %}
+    <div class="max-width">
+        <div class="post">
+            <h1>Pitch Your Idea</h1>
+            <br>
+            <hr>
+            <br>
+            <form action="" method="POST" enctype="multipart/form-data" style="font-size: 18px;">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                
+                <br>
+                <input type="submit" value="Post" class='postbtn'>
+            </form>    
+        </div>
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends "website/layout2.html" %}
+
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | Login
+        {% endblock %}
+    </title>
+</head>
+{% block body %}
+
+    <div class='max-width'>
+        <div class="login">
+            <h2>Login</h2>
+            <br>
+            <br>
+            {% if message %}
+                <div class='message'>{{ message }}</div>
+            {% endif %}
+
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {% endif %}
+                <input type="submit" value="Login" class="login-btn">
+            </form>
+            <h6><a href="{% url 'register' %}?next={{request.GET.next}}">I want to sign up!</a></h6>
+        </div>
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "website/layout2.html" %}
+{% load static %}
+
+<head>
+    <title>
+        {% block title %}
+        Pitch my Idea | Register
+        {% endblock %}
+    </title>
+</head>
+{% block body %}
+
+    <div class='max-width'>
+        <div class="register">
+            <h2>Register</h2>
+            <br>
+            <br>
+            {% if message %}
+                <div class='message'>{{ message }}</div>
+            {% endif %}
+
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" autofocus class="form-control" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="confirmation" placeholder="Confirm Password">
+                </div>
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {% endif %}
+                <input type="submit" value="Register" class="register-btn">
+            </form>
+            <h6><a href="{% url 'login' %}?next={{request.GET.next}}">I already have an account.</a></h6>
+        </div>
+        
+    </div>
+
+{% endblock %}
