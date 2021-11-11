@@ -17,37 +17,37 @@
         <div class="allchats">
             <div class="chatslist">
                 <div class="allchatheading">
-                    <h2 style="font-size: 40px; padding: 8% 0% 10% 7%;">All Chats</h2>
+                    <h2>All Chats</h2>
                 </div>
-                <div style="height: 77vh; overflow: scroll;">
+                <div class="chatslists">
                     {% for chat in chats %}
                         {% if chat.visitor.id != request.user.id or chat.owner.id != request.user.id %}
                             {% if request.user == chat.owner %}
                                 <a href="{% url 'chatroom' chat.post.id chat.visitor.id request.user.id%}">
                                     <div class="specificchat">
-                                        <p style="font-size: 23px;font-weight: 600; padding-bottom: 3%;">{{chat.visitor.username}}</p>
-                                        <p style="font-size: 20px; font-weight: 400; padding-left: 2%;">{{chat.post.title}} <span style="font-size: 14px; font-weight: normal;">[your idea]</span></p>
-                                        <p style="font-size: 16px; padding: 1% 0% 0% 3%; font-style: italic;">{% if chat.lastsent != request.user %}{{chat.notification}}{% endif %}</p>
+                                        <p class="username">{{chat.visitor.username}}</p>
+                                        <p class="posttitle">{{chat.post.title}} <span>[your idea]</span></p>
+                                        <p class="unreceivedmsg">{% if chat.lastsent != request.user %}{{chat.notification}}{% endif %}</p>
                                     </div>
                                 </a>
                             {% else %}
                                 <a href="{% url 'chatroom' chat.post.id chat.owner.id request.user.id %}">
                                     <div class="specificchat">
-                                        <p style="font-size: 23px;font-weight: 600; padding-bottom: 3%;">{{chat.owner.username}}</p>
-                                        <p style="font-size: 20px; font-weight: 400; padding-left: 2%;">{{chat.post.title}}</p>
-                                        <p style="font-size: 16px; padding: 1% 0% 0% 3%; font-style: italic;">{% if chat.lastsent != request.user %}{{chat.notification}}{% endif %}</p>
+                                        <p class="username">{{chat.owner.username}}</p>
+                                        <p class="posttitle">{{chat.post.title}}</p>
+                                        <p class="unreceivedmsg">{% if chat.lastsent != request.user %}{{chat.notification}}{% endif %}</p>
                                     </div>
                                 </a>
                             {% endif %}
                         {% endif %}
                         {% empty %}
-                            <p style="font-size: 18px; padding-top: 8%; text-align: center;">No Chats to show</p>
+                            <p class="nochat">No Chats to show</p>
                     {% endfor %}
                 </div>
                 
             </div>
-            <div class="chat" style="text-align: center;">
-                <p style="font-size: 23px; font-style: oblique; padding-top: 8%;">Select a Chat</p>
+            <div class="chat">
+                <p class="selectchat">Select a Chat</p>
             </div>
             
     

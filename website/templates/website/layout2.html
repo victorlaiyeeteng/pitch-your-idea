@@ -28,7 +28,7 @@
     <body>
         <nav class="navbar-pages">
             <div class='max-width'>
-                <div class='logo'><a href="{% url 'index' %}"><h1>p</h1><span style="display: inline;"><img src="{% static "website/images/image_processing20200424-23023-krhbwd.png" %}" alt="Logo" height="50px"/></span><h1 style="margin-left: -25px;">tchyouridea</h1></a></div>
+                <div class='logo'><a href="{% url 'index' %}"><h1>p</h1><span><img src="{% static "website/images/image_processing20200424-23023-krhbwd.png" %}" alt="Logo" height="50px"/></span><h1 class="secondhalflogo">tchyouridea</h1></a></div>
                 <ul class="menu">
                     <div class="menu-left">
                         {% if user.is_authenticated %}
@@ -53,10 +53,10 @@
                             <li><a href="{% url 'login' %}?next={% url 'post' %}" class='menu-btn-post'><i class="far fa-edit"></i> POST</a></li>
                         {% endif %}
                         {% if user.is_authenticated %}
-                            <li><a href="{% url 'allchats' %}"><i class="fas fa-inbox" style="font-size: 19.5px;"></i></a></li>
-                            <li><a href="{% url 'logout' %}" class='menu-btn' title="Log Out"><i class="fas fa-sign-out-alt" style="font-size: 20px;"></i></a></li>
+                            <li><a href="{% url 'allchats' %}"><i class="fas fa-inbox" id="fa-inbox-pages"></i></a></li>
+                            <li><a href="{% url 'logout' %}" class='menu-btn' title="Log Out"><i class="fas fa-sign-out-alt"></i></a></li>
                         {% else %}
-                            <li><a href="{% url 'login' %}?next={{request.path}}" class='menu-btn'><i class="fas fa-sign-in-alt" style="font-size: 20px;"></i> LOG IN</a></li>
+                            <li><a href="{% url 'login' %}?next={{request.path}}" class='menu-btn'><i class="fas fa-sign-in-alt"></i> LOG IN</a></li>
                             <li><a href="{% url 'register' %}?next={{request.path}}" class='menu-btn'>SIGN UP</a></li>
                         {% endif %}
                     </div>

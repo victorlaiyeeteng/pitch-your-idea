@@ -22,7 +22,7 @@
             {% for category in category_names; icon in category_icons %}
                 <a href="{% url 'category' category %}">
                     <div class="category-name">
-                        <p><i class="fas fa-{{icon}}" style="font-size: 23px;"></i> {{ category }}</p>
+                        <p><i class="fas fa-{{icon}}"></i> {{ category }}</p>
                     </div>
                 </a>
             {% endfor %}

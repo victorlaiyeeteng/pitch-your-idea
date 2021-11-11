@@ -12,15 +12,15 @@
 </head>
 
 {% block body %}
-    <div class="mainpage" style="position: relative;">
+    <div class="mainpage">
         <div class='max-width'>
             <div class="mainpage-left">
-                <h1 style="font-family: 'Gloria Hallelujah', cursive; font-size: 85px; line-height: 1.5em;">Unleash the Potential of your Idea with Us</h1>
+                <h1>Unleash the Potential of your Idea with Us</h1>
                 <br>
                 
             </div>
             <div class="mainpage-right">
-                <img src="{% static "website/images/Pngtreebusiness people network chat office_6814588.png" %}" alt="" height="313px" style="margin-bottom: -8%; margin-top: -12%; margin-left: -2%;">
+                <img src="{% static "website/images/Pngtreebusiness people network chat office_6814588.png" %}" alt="">
                 {% if user.is_authenticated %}
                     <form action="{% url 'post' %}">
                         <button class='pitch' type="submit">Pitch Your Idea</button>
@@ -35,8 +35,8 @@
                 </form>
             </div>
             <br>
-            <div style="display: block; position:absolute; bottom: 0;">
-                <i class="fas fa-quote-left" style="font-size: 24px; color: gray; position: absolute; margin-top: -1.8%; margin-left: -4.2%;"></i><p style=" font-size: 27px;">  Ideas are easy. Execution is everything. It takes a team to win.<span style="font-size: 21px; font-style: italic;"> --John Doerr, Venture Capitalist</span></p>
+            <div class="quotediv">
+                <i class="fas fa-quote-left"></i><p>  Ideas are easy. Execution is everything. It takes a team to win.<span> --John Doerr, Venture Capitalist</span></p>
                 <br>
                 <br>
                 <br>
@@ -46,24 +46,24 @@
     </div>
     <div class="mainpage-bottom">
         <div class="max-width">
-            <h3><span style="text-shadow: 3px 3px rgb(0, 83, 83); font-family: 'Cabin Sketch', cursive;">-our purpose-</span></h3>
-            <div class="firstrow" style="display: flex; width: 100%; padding-bottom: 4%;">
-                <div style="flex: 1;">
-                    <img src="{% static "website/images/42528478-the-meeting-americans-jones-is-standing-chatting-with-his-proselytes-vintage-engraved-illustration-j.jpg" %}" alt="" height="220px" style="display:block; margin:auto;">
+            <h3><span>-our purpose-</span></h3>
+            <div class="firstrow">
+                <div>
+                    <img src="{% static "website/images/42528478-the-meeting-americans-jones-is-standing-chatting-with-his-proselytes-vintage-engraved-illustration-j.jpg" %}" alt="" class="img220px">
                     <h5>Publicise your Idea to the right online target audience</h5>
                 </div>
-                <div style="flex: 1;">
-                    <img src="{% static "website/images/team-g607d4d1b2_1920-removebg.png" %}" alt="" height="220px" style="display:block; margin:auto;">
+                <div>
+                    <img src="{% static "website/images/team-g607d4d1b2_1920-removebg.png" %}" alt="" class="img220px">
                     <h5>Seek validation and constructive criticism</h5>
                 </div>
             </div>
-            <div class="secondrow" style="display: flex; width: 100%;">
-                <div style="flex: 1;">
-                    <img src="{% static "website/images/hands-g085a67a41_1280.png" %}" alt="" height="200px" style="display:block; margin:auto;">
+            <div class="secondrow">
+                <div>
+                    <img src="{% static "website/images/hands-g085a67a41_1280.png" %}" alt="" class="img200px">
                     <h5>Connect with interested collaborators or mentors</h5>
                 </div>
-                <div style="flex: 1; margin-top: -30px;">
-                    <img src="{% static "website/images/PngItem_28598.png" %}" alt="" height="230px" style="display:block; margin:auto;">
+                <div class="divlastpic">
+                    <img src="{% static "website/images/PngItem_28598.png" %}" alt="" class="img230px">
                     <h5>Refine and Improve your Idea for execution</h5>
                 </div>
             </div>
@@ -73,113 +73,114 @@
         <div class="max-width">
             <h3>Grow with Us</h3>
             <h5>No matter what idea, our platform will help you realize its true potential while eliminating possible problems.</h5>
-            <div style="display: flex;">
-                <!-- <img src="{% static "website/images/post snip.PNG" %}" alt="" height="800px"> -->
-                <!-- <img src="{% static "website/images/leaderboard snip.PNG" %}" alt="" height="640px" style=" position:absolute; margin-top: 13%; margin-left: -31%;"> -->
-                <img class="image111" src="{% static "website/images/combined 1 (1).PNG" %}" alt="" width="75%" style="margin-left: -5%; opacity: 0;">
-                <div style="padding-top: 10%; padding-left: 3%;">
-                    <p style="font-size: 32px; font-weight: 700; text-shadow: 2px 2px gray;">Post Your Idea</p>
+            <div class="postdescription">
+                <img class="image111" src="{% static "website/images/combined 1 (1).PNG" %}" alt="">
+                <div>
+                    <p class="postdesctitle">Post Your Idea</p>
                     <br>
-                    <p style="font-size: 23px; line-height: 150%;">Advertise it. <br>Share its opportunities and obstacles. <br>Gain positive feedback. <br>Garner likes to get your idea noticed on the leaderboard. <br>Attract collaborators and mentors.</p>
+                    <p class="postdescdesc">Advertise it. <br>Share its opportunities and obstacles. <br>Gain positive feedback. <br>Garner likes to get your idea noticed on the leaderboard. <br>Attract collaborators and mentors.</p>
                 </div>
-                
             </div>
         </div>
     </div>
-    <div class="as-a-user" style="height: 80vh;">
+    <div class="as-a-rater">
         <div class="max-width">
-            <div style="display: flex; margin-top: -3.3%;">
-                <div style="margin-top: -2%;">
-                    <p style="font-size: 32px; font-weight: 700; text-shadow: 2px 2px gray;">See an Idea that interests you?</p>
+            <div class="ratedescription">
+                <div class="ratedesc">
+                    <p class="ratedesctitle">See an Idea that interests you?</p>
                     <br>
-                    <p style="font-size: 23px; line-height: 150%;">Like it. <br>Comment your opinions.  <br>Track it for new updates and growth.  <br>Connect and chat with the ideator for more!</p>
+                    <p class="ratedescdesc">Like it. <br>Comment your opinions.  <br>Track it for new updates and growth.  <br>Connect and chat with the ideator for more!</p>
                     <br>
-                    <img class="image112" src="{% static "website/images/chat snip.PNG" %}" alt="" width="110%" style="margin-left: -13%; box-shadow: 10px 10px 2px 2px rgba(44, 44, 44, 0.575); opacity: 0;">
+                    <img class="image112" src="{% static "website/images/chat snip.PNG" %}" alt="">
                 </div>
-                <img class="image113" src="{% static "website/images/whole ideapage snip.PNG" %}" alt="" width= "60%" style="margin-right: -7%; margin-top:-10%; box-shadow: 10px 10px 2px 2px rgba(44, 44, 44, 0.575); opacity: 0;">
+                <img class="image113" src="{% static "website/images/whole ideapage snip.PNG" %}" alt="">
                 
             </div>
         </div>
     </div>
     <div class="max-width">
-        <div class="ideaboard" style="padding-top: 6%; padding-bottom: 5%;" id="ideaboard">
+        <div class="ideaboard" id="mainpage-ideaboard">
             <h2>All-Time Leaders</h2>
             <br>
             <hr>
             <br>
-            <a href="{% url 'idea' post1.id %}" style="display: block;">
-                <div class='idea1st' style="background-color: rgba(255, 217, 0, 0.178);">
+            <a href="{% url 'idea' post1.id %}" class="ideaparenta">
+                <div class='idea1st'>
                     <br>
-                    <li style="list-style: none; color: black;">
-                        <h4> <i class="fas fa-crown" style="color: #ffd700; font-size: 33px;"></i> {{ post1.title }}</h4>
+                    <li class="ideaparentli">
+                        <h4> <i class="fas fa-crown"></i> {{ post1.title }}</h4>
                         <div class='idea-content'><p>{{ post1.post|safe }}</p></div>
-                        <ul class='idea-details' style="text-align: left;">
-                                <li><h6 style="font-style: oblique; font-size: 17px;">{{ post1.category }}</h6></li>
+                        <ul class='idea-details'>
+                                <li><h6 class="idea-category">{{ post1.category }}</h6></li>
                                 <br>
-                                <li><h5>{{ post1.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 23px;"></i></h5></li>
-                                <li><h6>{{ post1.comments.all.count }} <i class="far fa-comment" style="font-size: 22px;"></i></h6></li>
+                                <li><h5 title="Likes">{{ post1.liked.all.count }} <i class="fa fa-thumbs-up"></i></h5></li>
+                                <li><h6 title="Comments">{{ post1.comments.all.count }} <i class="far fa-comment"></i></h6></li>
+                                <li><h6 title="Tracks">{{ post1.favourited.all.count }} <i class="fas fa-chart-line"></i></h6></li>
+                                <li><h6 title="Updates">{{post1.updates}} <i class="fas fa-wrench"></i></h6></li>
                         </ul>
-                        <ul style="text-align: right;">
-                            <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{ post1.timestamp|naturaltime }}</p></li>
+                        <ul class="idea-timestamp">
+                            <li><p>{{post1.editedtrue}} {{ post1.timestamp|naturaltime }}</p></li>
                         </ul>
-                        
                     </li>
                     <br>
                 </div>
             </a>
-            <a href="{% url 'idea' post2.id %}" style="display: block;">
-                <div class='idea2nd' style="background-color: rgba(192, 192, 192, 0.26);">
+            <a href="{% url 'idea' post2.id %}" class="ideaparenta">
+                <div class='idea2nd'>
                     <br>
-                    <li style="list-style: none; color: black;">
-                        <h4> <i class="fas fa-crown" style="color: #BBC2CC; font-size: 31px;"></i> {{ post2.title }}</h4>
+                    <li class="ideaparentli">
+                        <h4> <i class="fas fa-crown"></i> {{ post2.title }}</h4>
                         <div class='idea-content'><p>{{ post2.post|safe }}</p></div>
-                        <ul class='idea-details' style="text-align: left;">
-                                <li><h6 style="font-style: oblique; font-size: 17px;">{{ post2.category }}</h6></li>
+                        <ul class='idea-details'>
+                                <li><h6 class="idea-category">{{ post2.category }}</h6></li>
                                 <br>
-                                <li><h5>{{ post2.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 23px;"></i></h5></li>
-                                <li><h6>{{ post2.comments.all.count }} <i class="far fa-comment" style="font-size: 22px;"></i></h6></li>
+                                <li><h5 title="Likes">{{ post2.liked.all.count }} <i class="fa fa-thumbs-up"></i></h5></li>
+                                <li><h6 title="Comments">{{ post2.comments.all.count }} <i class="far fa-comment"></i></h6></li>
+                                <li><h6 title="Tracks">{{ post2.favourited.all.count }} <i class="fas fa-chart-line"></i></h6></li>
+                                <li><h6 title="Updates">{{post2.updates}} <i class="fas fa-wrench"></i></h6></li>
                         </ul>
-                        <ul style="text-align: right;">
-                            <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{ post2.timestamp|naturaltime }}</p></li>
+                        <ul class="idea-timestamp">
+                            <li><p>{{post2.editedtrue}} {{ post2.timestamp|naturaltime }}</p></li>
                         </ul>
-                        
                     </li>
                     <br>
                 </div>
             </a>
-            <a href="{% url 'idea' post3.id %}" style="display: block;">
-                <div class='idea3rd' style="background-color: #d67a1036;">
+            <a href="{% url 'idea' post3.id %}" class="ideaparenta">
+                <div class='idea3rd'>
                     <br>
-                    <li style="list-style: none; color: black;">
-                        <h4> <i class="fas fa-crown" style="color: #E4953C; font-size: 29px;"></i> {{ post3.title }}</h4>
+                    <li class="ideaparentli">
+                        <h4> <i class="fas fa-crown"></i> {{ post3.title }}</h4>
                         <div class='idea-content'><p>{{ post3.post|safe }}</p></div>
-                        <ul class='idea-details' style="text-align: left;">
-                                <li><h6 style="font-style: oblique; font-size: 17px;">{{ post3.category }}</h6></li>
+                        <ul class='idea-details'>
+                                <li><h6 class="idea-category">{{ post3.category }}</h6></li>
                                 <br>
-                                <li><h5>{{ post3.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 23px;"></i></h5></li>
-                                <li><h6>{{ post3.comments.all.count }} <i class="far fa-comment" style="font-size: 22px;"></i></h6></li>
+                                <li><h5 title="Likes">{{ post3.liked.all.count }} <i class="fa fa-thumbs-up"></i></h5></li>
+                                <li><h6 title="Comments">{{ post3.comments.all.count }} <i class="far fa-comment"></i></h6></li>
+                                <li><h6 title="Tracks">{{ post3.favourited.all.count }} <i class="fas fa-chart-line"></i></h6></li>
+                                <li><h6 title="Updates">{{post3.updates}} <i class="fas fa-wrench"></i></h6></li>
                         </ul>
-                        <ul style="text-align: right;">
-                            <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{ post3.timestamp|naturaltime }}</p></li>
+                        <ul class="idea-timestamp">
+                            <li><p>{{post3.editedtrue}} {{ post3.timestamp|naturaltime }}</p></li>
                         </ul>
-                        
                     </li>
                     <br>
                 </div>
             </a>
         </div>
+        
     </div>
     <div class="footer">
         <div class="max-width">
-            <p style="text-align: center; font-size: 40px; font-weight: 600;">Ready to Get Started?</p>
+            <p>Ready to Get Started?</p>
             <br>
             {% if user.is_authenticated %}
-                <div style="text-align: center;">
+                <div>
                     <button class="footer-login"><a href="{% url 'post' %}">Pitch Your Idea</a></button>
                     <button class="footer-register"><a href="{% url 'ideas' %}">View The Ideas</a></button>
                 </div>
             {% else %}
-                <div style="text-align: center;">
+                <div>
                     <button class="footer-login"><a href="{% url 'login' %}">Log In</a></button>
                     <button class="footer-register"><a href="{% url 'register' %}">Create Account</a></button>
                 </div>

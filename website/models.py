@@ -64,6 +64,7 @@ class Post(models.Model):
     updated_timestamp = models.DateTimeField(auto_now=True)
     liked = models.ManyToManyField(User, related_name="liked_user")
     favourited = models.ManyToManyField(User, related_name="favourited_user")
+    updates = models.IntegerField(default='0', null=True)
 
     def get_absolute_url(self):
         return reverse('ideas')

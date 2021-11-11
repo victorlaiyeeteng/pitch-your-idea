@@ -1,6 +1,6 @@
 from datetime import datetime
-import django
 from django.utils import timezone
+import django
 from typing import Text
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
@@ -130,7 +130,7 @@ def editpost(request, post_id):
             newform.instance.user = request.user
             saved_form = newform.save()
             saved_id = saved_form.pk
-            Post.objects.filter(id=post_id).update(timestamp=timezone.now())
+            Post.objects.filter(id=post_id).update(timestamp=datetime.now())
             Post.objects.filter(id=post_id).update(editedtrue='Edited')
             return redirect('/idea/{}'.format(saved_id))
     return render(request, 'website/post.html', {
@@ -148,6 +148,8 @@ def subpost(request, post_id):
             new_form = form.save()
             new_form.parentpost = post
             new_form.save()
+            post.updates += 1
+            post.save()
             return redirect('/idea/{}'.format(post_id))
     return render(request, 'website/subpost.html', {
         "form": form, 
@@ -166,7 +168,7 @@ def editsubpost(request, subpost_id):
         if newform.is_valid():
             newform.instance.user = request.user
             saved_form = newform.save()
-            Subpost.objects.filter(id=subpost_id).update(timestamp=timezone.now())
+            Subpost.objects.filter(id=subpost_id).update(timestamp=datetime.now())
             Subpost.objects.filter(id=subpost_id).update(editedtrue='Edited')
             return redirect('/idea/{}'.format(post_id))
     return render(request, 'website/subpost.html', {
@@ -179,8 +181,11 @@ def deletesubpost(request, subpost_id):
     subpost = Subpost.objects.filter(id=subpost_id)
     subpostinfo = Subpost.objects.get(id=subpost_id)
     post_id = subpostinfo.parentpost.id
+    post = Post.objects.get(id=post_id)
     if request.method == 'POST':
         subpost.delete()
+        post.updates -= 1
+        post.save()
         return redirect('/idea/{}'.format(post_id))
     return render(request, 'website/deletesubpost.html', {
         "subpost":subpostinfo
@@ -267,7 +272,7 @@ def categories(request):
     })
 
 def categoryposts(request, cats):
-    category_posts = Post.objects.filter(category=cats)
+    category_posts = Post.objects.filter(category=cats).order_by('-timestamp')
     category_names = []
     for i in range(len(category_choices)):
         category_names.append(category_choices[i][0])
