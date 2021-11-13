@@ -17,6 +17,7 @@ button {
 	max-width: 1300px;
 	padding: 5px 95px;
 	margin: auto;
+	zoom: 120%;
 }
 html{
     scroll-behavior: smooth;
@@ -683,7 +684,7 @@ html{
 	padding-top: 11.1%;
 }
 .post form{
-	font-size: 30px;
+	font-size: 25px;
 }
 .postbtn {
 		margin-left: 1%;
@@ -786,7 +787,7 @@ html{
 	font-size: 22px;
 	font-weight:bold;
 }
-.fa-thumbs-up{
+.idea-details .fa-thumbs-up{
 	font-size: 23px;
 }
 .fa-comment{
@@ -1010,11 +1011,12 @@ html{
 }
 
 /* idea styling */
+
 .specificidea {
 	padding-top: 9%;
 }
 .specificidea .idea-image{
-	max-width: 25%;
+	max-width: 24%;
 	padding: 1%;
 }
 .specificidea-heading {
@@ -1027,10 +1029,23 @@ html{
 	width: 80%;
 	margin-right: 0%;
 }
+.heading-left h4{
+	font-style: italic; 
+	padding-left: 1%;
+}
 .heading-right {
 	display: flex;
 	margin-bottom: 0%;
 	padding-right: 5%;
+}
+.fa-envelope-open-text {
+	font-size: 19px;
+}
+.fa-chart-line {
+	font-size: 19px;
+}
+.specificidea .fa-thumbs-up{
+	font-size: 19px;
 }
 .heading-right-btn {
 	display: flex;
@@ -1042,8 +1057,34 @@ html{
 	font-size: 20px;
 	font-weight: 700;
 }
-.heading-right-btn button:not(.connect){
+.heading-right-btn a{
+	color: black;
+}
+.heading-right-btn button:not(.connect,.ideanotauthlike, .ideanotauthtrack){
 	margin-top: 5%;
+}
+.ideanotauthtrack {
+	background-color: #f1292fce;
+	margin-top: 6px;
+	color: black; 
+	cursor: pointer; 
+	width: 100px; 
+	margin-right: 6px;
+}
+.ideanotauthtrack:hover{
+	background-color: #f12930b0;
+}
+.ideanotauthlike {
+	background-color: palegreen;
+	color: black; 
+	cursor: pointer; 
+	width: 100px; 
+	margin-right: 6px; 
+	margin-top: 6px;
+}
+.ideanotauthlike:hover{
+	font-style: italic;
+	background-color: lightgreen;
 }
 .approve {
 	background-color: palegreen;
@@ -1137,6 +1178,22 @@ html{
 	margin-top: 2%;
 	font-size: 40px;
 }
+#like-countnonowner {
+	margin-top: -0.2%;
+}
+#like-logononowner{
+	font-size: 28px; 
+	margin-left: 2%; 
+	margin-top: 3%;
+}
+#like-logoowner{
+	font-size: 28px; 
+	margin-left: 3%; 
+	margin-top: 6.4%;
+}
+.specificideacategory span{
+	font-weight: 500;
+}
 .idea-image{
 	border-radius: 5px;
 	cursor: pointer;
@@ -1145,6 +1202,20 @@ html{
 .idea-image:hover{
 	opacity: 0.7;
 }
+.specificidea .post {
+	background-color: rgba(235, 235, 235, 0.349); 
+	padding:2% 3% 2% 3%; 
+	margin-bottom: 2%; 
+	margin-top: -2%;
+}
+.specificidea .post form {
+	font-size: 22px;
+}
+.specificidea-heading .heading-left h5{
+	font-style: italic;
+	font-size:  19px;
+}
+
 .subpostedit, .subpostdelete {
 	font-size: 22px;
 	padding-right: 1.2%;
@@ -1180,14 +1251,46 @@ html{
 	animation-name: zoom;
 	animation-duration: 0.5s;
 }
+.specificideatimestamp {
+	font-size: 14px;
+	font-style: italic;
+}
+.betweenideaandupdates {
+	display: block; 
+	height: 1px; 
+	border: 0; 
+	border-top: 1px solid rgba(211, 211, 211, 0.815);
+	margin-top: 0.2px;
+}
 .subposts {
 	margin: 0% 1% 0% 1%;
 }
 .subpost {
 	padding: 1.5%;
 	background-color: rgba(241, 241, 241, 0.329);
-	margin: 0% 1.8% 0.5% 1.8%;
+	margin: 0% 1.5% 0.5% 1.5%;
 }
+.subpostbtn {
+	display: flex; 
+	justify-content: right; 
+	text-align: right; 
+	margin: -2% 2.2% 0.8% 0%;
+}
+.subpostbtn i{
+	font-size: 18px;
+}
+.subposttimestamp {
+	font-size: 14px; 
+	font-style: italic; 
+	padding: 0.5% 0% 0.5% 0%;
+}
+.subpostnoupdates {
+	margin-top: -1%; 
+	padding-left: 2%; 
+	padding-bottom:0.5%; 
+	font-size: 15px;
+}
+
 .delete-idea {
 	padding-left: 1%;
 }
@@ -1223,6 +1326,10 @@ html{
   text-decoration: none;
   cursor: pointer;
 }
+.comments h2{
+	font-size: 23px;
+	font-weight: 600;
+}
 .commentinput {
 	width: 95%;
 	height: 100px;
@@ -1253,6 +1360,16 @@ html{
 .comment-list {
 	margin-left: 3%;
 }
+.comment-list .individual-comment h4{
+	padding-bottom: 1%;
+}
+.comment-list .individual-comment span{
+	font-weight: 450;
+	font-size: smaller;
+}
+.comment-list p{
+	padding-bottom: 0.5%;
+}
 .individual-comment {
 	background-color: rgba(192, 192, 192, 0.26);
 	width: 95%;
@@ -1267,6 +1384,16 @@ html{
 #delete-btn:hover {
 	animation: shake 0.5s;
 	animation-iteration-count: infinite;
+}
+.deletecommentbtn {
+	height: 33px; 
+	width: 30px; 
+	background-color: transparent; 
+	border: none;
+}
+.fa-trash-alt {
+	color:darkolivegreen; 
+	font-size: 20px;
 }
 @keyframes shake {
 	0% { transform: translate(1px, 1px) rotate(0deg); }

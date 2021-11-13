@@ -15,7 +15,7 @@
             <br>
             <hr>
             <br>
-            <form action="" method="POST" enctype="multipart/form-data" style="font-size: 18px;">
+            <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.media }}
                 {{ form.as_p }}

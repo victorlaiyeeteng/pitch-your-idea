@@ -13,25 +13,25 @@
 
 {% block body %}
 
-    <div class="max-width2" style="zoom: 120%;">
+    <div class="max-width2">
         <div class="specificidea">
             <div class="specificidea-heading">
                 <div class="heading-left">
                     <h1>{{ post.title }}</h1>
                     <br>
-                    <h4 style="font-style: italic; padding-left: 1%;">{{ post.user.username }}</h5>
+                    <h4>{{ post.user.username }}</h5>
                 </div>
                 <div class="heading-right">
                     {% if user != post.user %}
                         <div class="heading-right-btn">
                             {% if user.is_authenticated %}
-                                <button class="connect"><a href="{% url 'chatroom' post.id post.user.id request.user.id %}"><i class="fas fa-envelope-open-text" style="font-size: 19px;"></i> Connect</a></button>
+                                <button class="connect"><a href="{% url 'chatroom' post.id post.user.id request.user.id %}"><i class="fas fa-envelope-open-text"></i> Connect</a></button>
                                 {% if user not in post.favourited.all %}
                                     <form action="{% url 'favourite' %}" method="POST" class="favourite-form" id='{{post.id}}'>
                                         {% csrf_token %}
                                         <input type="hidden" name="post_id" value={{post.id}}>
                                             <button type="submit" id="favourite-btn{{post.id}}" class="favourite" >
-                                                <i class="fas fa-chart-line" style="font-size: 19px;"></i> Track
+                                                <i class="fas fa-chart-line"></i> Track
                                             </button>
                                     </form>
                                 {% endif %}
@@ -40,7 +40,7 @@
                                         {% csrf_token %}
                                         <input type="hidden" name="post_id" value={{post.id}}>
                                             <button type="submit" id="favourite-btn{{post.id}}" class="favourited">
-                                                <i class="fas fa-chart-line" style="font-size: 19px;"></i> Tracked
+                                                <i class="fas fa-chart-line"></i> Tracked
                                             </button>
                                     </form>
                                 {% endif %}
@@ -49,7 +49,7 @@
                                         {% csrf_token %}
                                         <input type="hidden" name="post_id" value={{post.id}}>
                                             <button type="submit" id="like-btn{{post.id}}" class="approve" >
-                                                <i class="far fa-thumbs-up" style="font-size: 19px;"></i> Like
+                                                <i class="far fa-thumbs-up"></i> Like
                                             </button>
                                     </form>
                                 {% endif %}
@@ -58,63 +58,63 @@
                                         {% csrf_token %}
                                         <input type="hidden" name="post_id" value={{post.id}}>
                                             <button type="submit" id="like-btn{{post.id}}" class="approved">
-                                                <i class="far fa-thumbs-up" style="font-size: 19px;"></i> Liked
+                                                <i class="far fa-thumbs-up"></i> Liked
                                             </button>
                                     </form>
                                 {% endif %}
                             {% else %}
-                                <button class="connect"><a href="{% url 'login' %}?next={{request.path}}"><i class="fas fa-envelope-open-text" style="font-size: 19px;"></i> Connect</a></button>
-                                <button style="background-color: #f1292fce; color: black; cursor: pointer; width: 100px; margin-right: 6px; margin-top: 6px;" onmouseover="this.style.backgroundColor='#f12930b0'" onmouseout="this.style.backgroundColor='#f1292fce'"><a href="{% url 'login' %}?next={{request.path}}" style="color: black;"><i class="fas fa-chart-line" style="font-size: 19px;"></i> Track</a></button>
-                                <button style="background-color: palegreen; color: black; cursor: pointer; width: 100px; margin-right: 6px; margin-top: 6px;" onmouseover="this.style.fontStyle='italic', this.style.backgroundColor='lightgreen'" onmouseout="this.style.fontStyle='normal', this.style.backgroundColor='palegreen'"><a href="{% url 'login' %}?next={{request.path}}" style="color: black;"><i class="far fa-thumbs-up" style="font-size: 19px;"></i> Like</a></button>
+                                <button class="connect"><a href="{% url 'login' %}?next={{request.path}}"><i class="fas fa-envelope-open-text"></i> Connect</a></button>
+                                <button class="ideanotauthtrack"><a href="{% url 'login' %}?next={{request.path}}"><i class="fas fa-chart-line"></i> Track</a></button>
+                                <button class="ideanotauthlike"><a href="{% url 'login' %}?next={{request.path}}"><i class="far fa-thumbs-up"></i> Like</a></button>
                             {% endif %}
                         </div>
-                        <h5 class="like-count{{post.id}}" style="margin-top: -0.2%;">{{ post.liked.all.count }}</h5><i class="fa fa-thumbs-up" style="font-size: 28px; margin-left: 2%; margin-top: 3%;"></i>
+                        <h5 class="like-count{{post.id}}" id="like-countnonowner">{{ post.liked.all.count }}</h5><i class="fa fa-thumbs-up" id="like-logononowner"></i>
                     {% else %}
                         <div class="heading-right-btn">
                             <button class="update"><a href="{% url 'subpost' post.id %}"><i class="fas fa-wrench"></i> Update</a></button>
                             <button class="edit"><a href="{% url 'editpost' post.id %}"><i class="fas fa-pen"></i> Edit</a></button>
                         </div>
-                        <h5 class="like-count{{post.id}}">{{ post.liked.all.count }}</h5><i class="fa fa-thumbs-up" style="font-size: 28px; margin-left: 3%; margin-top: 6.4%;"></i>
+                        <h5 class="like-count{{post.id}}">{{ post.liked.all.count }}</h5><i class="fa fa-thumbs-up" id="like-logoowner"></i>
                     {% endif %}
                 </div>
             </div>
             
             <hr>
             <br>
-            <h4>Category: <span style="font-weight:500;">{{ post.category }}</span></h4>
+            <h4 class="specificideacategory">Category: <span>{{ post.category }}</span></h4>
             <br>
             <br>
             <p>{{ post.post|safe }}</p>
             {% if post.image1 %}
-                <img src="{{ post.image1.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image1" class="idea-image">
+                <img src="{{ post.image1.url }}" alt="" id="idea-image1" class="idea-image">
                 <div id="myModal1" class="modal">
                     <span class="close">&times;</span>
                     <img class="modal-content" id="img01" src="{{ post.image1.url }}">
                 </div>
             {% endif %}
             {% if post.image2 %}
-                <img src="{{ post.image2.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image2" class="idea-image">
+                <img src="{{ post.image2.url }}" alt="" id="idea-image2" class="idea-image">
                 <div id="myModal2" class="modal">
                     <span class="close">&times;</span>
                     <img class="modal-content" id="img01" src="{{ post.image2.url }}">
                 </div>
             {% endif %}
             {% if post.image3 %}
-                <img src="{{ post.image3.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image3" class="idea-image">
+                <img src="{{ post.image3.url }}" alt="" id="idea-image3" class="idea-image">
                 <div id="myModal3" class="modal">
                     <span class="close">&times;</span>
                     <img class="modal-content" id="img01" src="{{ post.image3.url }}">
                 </div>
             {% endif %}
             {% if post.image4 %}
-                <img src="{{ post.image4.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image4" class="idea-image">
+                <img src="{{ post.image4.url }}" alt="" id="idea-image4" class="idea-image">
                 <div id="myModal4" class="modal">
                     <span class="close">&times;</span>
                     <img class="modal-content" id="img01" src="{{ post.image4.url }}">
                 </div>
             {% endif %}
             {% if post.image5 %}
-                <img src="{{ post.image5.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image5" class="idea-image">
+                <img src="{{ post.image5.url }}" alt="" id="idea-image5" class="idea-image">
                 <div id="myModal5" class="modal">
                     <span class="close">&times;</span>
                     <img class="modal-content" id="img01" src="{{ post.image5.url }}">
@@ -122,8 +122,8 @@
             {% endif %}
             <br>
             <br>
-            <p style="font-size: 14px; font-style: italic;">{{post.editedtrue}} {{ post.timestamp|naturaltime }}</p>
-            <hr style="display: block; height: 1px; border: 0; border-top: 1px solid rgba(211, 211, 211, 0.815);margin-top: 0.2px;">
+            <p class="specificideatimestamp">{{post.editedtrue}} {{ post.timestamp|naturaltime }}</p>
+            <hr class="betweenideaandupdates">
             <br>
             <div class="subposts">
                 <h2>Updates</h2>
@@ -131,55 +131,55 @@
                 {% for subpost in subposts %}
                     <div class="subpost">
                         <h3>{{ subpost.title }}</h3>
-                        <div style="display: flex; justify-content: right; text-align: right; margin: -2% 2.2% 0.8% 0%;">
+                        <div class="subpostbtn">
                             <a href="{% url 'editsubpost' subpost.id %}" title="Edit" class="subpostedit"><i class="fas fa-edit"></i></a>
                             <a href="{% url 'deletesubpost' subpost.id %}" title="Delete" class="subpostdelete"><i class="fas fa-trash"></i></a>
                         </div>
                         <p>{{ subpost.post|safe }}</p>
                         {% if subpost.image1 %}
-                            <img src="{{ subpost.image1.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image1" class="idea-image">
+                            <img src="{{ subpost.image1.url }}" alt="" id="idea-image1" class="idea-image">
                             <div id="myModal1" class="modal">
                                 <span class="close">&times;</span>
                                 <img class="modal-content" id="img01" src="{{ subpost.image1.url }}">
                             </div>
                         {% endif %}
                         {% if subpost.image2 %}
-                            <img src="{{ subpost.image2.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image2" class="idea-image">
+                            <img src="{{ subpost.image2.url }}" alt="" id="idea-image2" class="idea-image">
                             <div id="myModal2" class="modal">
                                 <span class="close">&times;</span>
                                 <img class="modal-content" id="img01" src="{{ subpost.image2.url }}">
                             </div>
                         {% endif %}
                         {% if subpost.image3 %}
-                            <img src="{{ subpost.image3.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image3" class="idea-image">
+                            <img src="{{ subpost.image3.url }}" alt="" id="idea-image3" class="idea-image">
                             <div id="myModal3" class="modal">
                                 <span class="close">&times;</span>
                                 <img class="modal-content" id="img01" src="{{ subpost.image3.url }}">
                             </div>
                         {% endif %}
                         {% if subpost.image4 %}
-                            <img src="{{ subpost.image4.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image4" class="idea-image">
+                            <img src="{{ subpost.image4.url }}" alt="" id="idea-image4" class="idea-image">
                             <div id="myModal4" class="modal">
                                 <span class="close">&times;</span>
                                 <img class="modal-content" id="img01" src="{{ subpost.image4.url }}">
                             </div>
                         {% endif %}
                         {% if subpost.image5 %}
-                            <img src="{{ subpost.image5.url }}" alt="" style="max-width: 20%; padding: 1%;" id="idea-image5" class="idea-image">
+                            <img src="{{ subpost.image5.url }}" alt="" id="idea-image5" class="idea-image">
                             <div id="myModal5" class="modal">
                                 <span class="close">&times;</span>
                                 <img class="modal-content" id="img01" src="{{ subpost.image5.url }}">
                             </div>
                         {% endif %}
-                        <p style="font-size: 14px; font-style: italic; padding: 0.5% 0% 0.5% 0%;">{{subpost.editedtrue}} {{ subpost.timestamp|naturaltime }}</p>
+                        <p class="subposttimestamp">{{subpost.editedtrue}} {{ subpost.timestamp|naturaltime }}</p>
                         {% empty %}
-                        <p style="margin-top: -1%; padding-left: 2%; padding-bottom:0.5%; font-size: 13px;">No updates by {{post.user.username}} yet</p>
+                        <p class="subpostnoupdates">No updates by {{post.user.username}} yet</p>
                     </div>
                 {% endfor %}
             </div>
             <hr>
             <div class="comments">
-                <h2 style="font-size: 23px; font-weight: 600;">Comments...</h2>
+                <h2>Comments...</h2>
                 <br>
                 {% if user.is_authenticated %}
                     <form action="{% url 'comment' %}" method="POST" class="comment-form" data-user="{{user.username}}">
@@ -200,10 +200,10 @@
                     <div class="comment-list">
                         {% for comment in comments %}
                             <div class="individual-comment">
-                                <h4 style="padding-bottom: 1%;">{{ comment.user.username }} <span style="font-weight: 450; font-size: smaller;">- {{ comment.timestamp|naturaltime }}</span></h4>
-                                <p style="padding-bottom: 0.5%;">{{ comment.content }}</p>
+                                <h4>{{ comment.user.username }} <span>- {{ comment.timestamp|naturaltime }}</span></h4>
+                                <p>{{ comment.content }}</p>
                                 {% if comment.user == user %}
-                                    <button id="delete-btn" title="Delete Comment" style="height: 33px; width: 30px; background-color: transparent; border: none;"><a id="delete-a" href="{% url 'delete_comment' comment.id %}"><i class="far fa-trash-alt" style="color:darkolivegreen; font-size: 20px;"></i></a></button>
+                                    <button class="deletecommentbtn" id="delete-btn" title="Delete Comment"><a id="delete-a" href="{% url 'delete_comment' comment.id %}"><i class="far fa-trash-alt"></i></a></button>
                                 {% endif %}
                             </div>
                             <br>

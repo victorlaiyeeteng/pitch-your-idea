@@ -20,21 +20,22 @@
             <br>
             <ul>
                 {% for post in posts %}
-                <a href="{% url 'idea' post.id %}" style="display: block;">
+                <a href="{% url 'idea' post.id %}" class="ideaparenta">
                     <div class='idea'>
                         <br>
-                        <li style="list-style: none; color: black;">
+                        <li class="ideaparentli">
                             <h4>{{ post.title }}</h4>
                             <div class='idea-content'><p>{{ post.post|safe }}</p></div>
-                            <ul class='idea-details' style="text-align: left;">
-                                    <li><h6 style="font-style: oblique; font-size: 17px;">{{ post.category }}</h6></li>
+                            <ul class='idea-details'>
+                                    <li><h6 class="idea-category">{{ post.category }}</h6></li>
                                     <br>
-                                    <li><h5 title="Likes">{{ post.liked.all.count }} <i class="fa fa-thumbs-up" style="font-size: 23px;"></i></h5></li>
-                                    <li><h6 title="Comments">{{ post.comments.all.count }} <i class="far fa-comment" style="font-size: 22px;"></i></h6></li>
-                                    <li><h6 style="font-weight: 600;" title="Tracks">{{ post.favourited.all.count }} <i class="fas fa-chart-line" style="font-size: 22px;"></i></h6></li>
+                                    <li><h5 title="Likes">{{ post.liked.all.count }} <i class="fa fa-thumbs-up"></i></h5></li>
+                                    <li><h6 title="Comments">{{ post.comments.all.count }} <i class="far fa-comment"></i></h6></li>
+                                    <li><h6 title="Tracks">{{ post.favourited.all.count }} <i class="fas fa-chart-line"></i></h6></li>
+                                    <li><h6 title="Updates">{{post.updates}} <i class="fas fa-wrench"></i></h6></li>
                             </ul>
-                            <ul style="text-align: right;">
-                                <li style="list-style: none; font-size: 12px; padding-right: 2%; margin-top: -2%;"><p>{{post.editedtrue}} {{ post.timestamp|naturaltime }}</p></li>
+                            <ul class="idea-timestamp">
+                                <li><p>{{post.editedtrue}} {{ post.timestamp|naturaltime }}</p></li>
                             </ul>
                             
                         </li>
