@@ -260,7 +260,12 @@ html{
 	-webkit-animation: fadeIn 1s;
 	animation: fadeIn 1s;
 }
-
+.menu-bars{
+	color: black;
+	font-size: 20px;
+	cursor: pointer;
+	display: none;
+}
 /* homepage styling */
 .mainpage .max-width{
 	display: flex;
@@ -352,7 +357,7 @@ html{
 	bottom: 0;
 }
 .fa-quote-left{
-	font-size: 24px; 
+	font-size: 23px; 
 	color: gray; 
 	position: absolute; 
 	margin-top: -1.8%; 
@@ -1677,4 +1682,277 @@ html{
 	border-top: 0;
 	margin-top: -3px;
 	margin-right: -5px;
+}
+
+@media (max-width:1366px){
+	.max-width{
+		max-width: 1330px;
+	}
+	.navbar{
+		padding: 27px 0;
+		height: 82px;
+	}
+	.navbar-pages{
+		padding: 27px 0;
+		height: 82px;
+	}
+	.as-a-rater {
+		padding-top: 10%;
+		height: 90vh;
+	}
+	.chatheading h4{
+		padding-top: 1%;
+	}
+}
+
+@media screen and (max-width:1024px) and (orientation:portrait){
+	.max-width2{
+		zoom: 110%;
+	}
+	.specificidea{
+		padding-top: 13%;
+	}
+	.mainpage .mainpage-left h1{
+		font-size: 70px;
+	}
+	.mainpage .max-width{
+		height: 60vh;
+	}
+	.as-a-rater{
+		margin-top: -50%;
+		height: 60vh;
+	}
+	.menu-bars{
+		display: inline-block;
+		z-index: 2000;
+		margin-top: -3%;
+	}
+	.menu-bars:hover{
+		color: #027ca1;
+		transition: ease-in-out 0.3s;
+	}
+	.menu-bars i.active::before{
+		content:"\f00d";
+	}
+	.navbar .menu{
+		position: fixed;
+		padding-left: 30px;
+		height: 100px;
+		width: 100%;
+		top: 0;
+		background: rgb(243, 242, 242);
+		text-align: center;
+		justify-content: right;
+		padding-top: 40px;
+		display: none;
+	}
+	.navbar .menu.active{
+		right: 0;
+		display: inline-block;
+	}
+	.navbar .menu .menu-right{
+		float: left;
+	}
+	.navbar .menu li{
+		display: inline-block;
+	}
+	.navbar .menu li a{
+		display: block;
+		margin: 10px 0;
+		font-size: 18px;
+	}
+	.navbar-pages .menu{
+		position: fixed;
+		padding-left: 30px;
+		height: 80px;
+		width: 100%;
+		top: 0;
+		background: rgb(243, 242, 242);
+		text-align: center;
+		justify-content: right;
+		padding-top: 23px;
+		display: none;
+	}
+	.navbar-pages .menu.active{
+		right: 0;
+		display: inline-block;
+	}
+	.navbar-pages .menu .menu-right{
+		float: left;
+	}
+	.navbar-pages .menu li{
+		display: inline-block;
+	}
+	.navbar-pages .menu li a{
+		display: block;
+		margin: 10px 0;
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width:1024px) and (orientation:landscape){
+	.max-width{
+		max-width: 1024px;
+	}
+	.max-width2{
+		max-width: 1000px;
+	}
+	.navbar{
+		padding: 25px 0;
+		height: 82px;
+	}
+	.navbar .menu li a{
+		font-size: 16.5px;
+	}
+	.fa-inbox {
+		font-size: 18px;
+	}
+	.fa-sign-out-alt{
+		font-size: 18px;
+	}
+	.fa-sign-in-alt{
+		font-size: 18px;
+	}
+	.navbar-pages{
+		padding: 25px 0;
+		height: 82px;
+	}
+	.navbar-pages .menu li a{
+		font-size: 16px;
+	}
+	.menu-bars{
+		display: inline-block;
+		z-index: 2000;
+		margin-top: -3%;
+	}
+	.menu-bars:hover{
+		color: #027ca1;
+		transition: ease-in-out 0.3s;
+	}
+	.menu-bars i.active::before{
+		content:"\f00d";
+	}
+	.navbar .menu{
+		position: fixed;
+		padding-left: 30px;
+		height: 100px;
+		width: 100%;
+		top: 0;
+		background: rgb(243, 242, 242);
+		text-align: center;
+		justify-content: right;
+		padding-top: 40px;
+		display: none;
+	}
+	.navbar .menu.active{
+		right: 0;
+		display: inline-block;
+	}
+	.navbar .menu .menu-right{
+		float: left;
+	}
+	.navbar .menu li{
+		display: inline-block;
+	}
+	.navbar .menu li a{
+		display: block;
+		margin: 10px 0;
+		font-size: 18px;
+	}
+	.navbar-pages .menu{
+		position: fixed;
+		padding-left: 30px;
+		height: 80px;
+		width: 100%;
+		top: 0;
+		background: rgb(243, 242, 242);
+		text-align: center;
+		justify-content: right;
+		padding-top: 23px;
+		display: none;
+	}
+	.navbar-pages .menu.active{
+		right: 0;
+		display: inline-block;
+	}
+	.navbar-pages .menu .menu-right{
+		float: left;
+	}
+	.navbar-pages .menu li{
+		display: inline-block;
+	}
+	.navbar-pages .menu li a{
+		display: block;
+		margin: 10px 0;
+		font-size: 18px;
+	}
+	.mainpage .mainpage-left h1{
+		font-size: 60px;
+		line-height: 1.5em;
+	}
+	.mainpage .mainpage-right img{
+		height: 200px;
+	}
+	.mainpage .mainpage-right button{
+		margin-left: 5%;
+		width: 175px;
+		height: 55px;
+		font-size: 22px;
+	}
+	.fa-quote-left{
+		font-size: 18px;
+	}
+	.mainpage .quotediv p{
+		font-size: 22px;
+	}
+	.mainpage .quotediv span{
+		font-size: 17px;
+	}
+	.mainpage .quotediv{
+		margin-bottom: -3%;
+	}
+	.mainpage-bottom h5{
+		font-size: 24px;
+	}
+	.mainpage-bottom .img200px{
+		height: 185px;
+	}
+	.mainpage-bottom .img220px{
+		height: 205px;
+	}
+	.mainpage-bottom .img230px{
+		height: 215px;
+	}
+	.as-a-rater{
+		padding-top: 13%;
+		height: 95vh;
+	}
+	.footer p{
+		font-size: 36px;
+	}
+	.footer-login a{
+		font-size: 21px;
+	}
+	.footer-register a{
+		font-size: 21px;
+	}
+	.specificidea{
+		padding-top: 12%;
+	}
+	.allchats h2{
+		padding: 4% 0% 16% 7%;
+	}
+	.chatheading h4{
+		font-size: 26px;
+		padding-top: 0.2%;
+	}
+	.chatheading a{
+		font-size: 19px;
+	}
+	.messages-area{
+		padding: 2% 3% 0% 3%;
+	}
+	.message .content{
+		font-size: 18px;
+	}
 }

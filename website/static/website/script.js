@@ -44,6 +44,11 @@ $(document).ready(function(){
     $('.close').click(function(){
         $('#myModal5').css('display', 'none');
     })
+    $('.menu-bars').click(function(){
+        $('.navbar .menu').toggleClass("active");
+        $('.navbar-pages .menu').toggleClass("active");
+        $('.menu-bars i').toggleClass("active");
+    })
     $(window).scroll(function(){
         $('.image111').each( function(i) {
             var bottom_of_object = $(this).position().top + ($(this).outerHeight()/4);

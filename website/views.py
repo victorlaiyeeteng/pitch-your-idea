@@ -91,7 +91,7 @@ def index(request):
 #ideas page view
 def ideaboard(request):
     ideas = Post.objects.all().order_by('-timestamp')
-    paginator = Paginator(ideas, 8)
+    paginator = Paginator(ideas, 10)
     if request.GET.get("page") != None:
         try:
             ideas = paginator.page(request.GET.get('page'))
