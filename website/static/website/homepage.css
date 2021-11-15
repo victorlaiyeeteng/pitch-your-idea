@@ -1745,6 +1745,7 @@ html{
 		justify-content: right;
 		padding-top: 40px;
 		display: none;
+		transition: ease-in-out 0.2s;
 	}
 	.navbar .menu.active{
 		right: 0;
@@ -1954,5 +1955,449 @@ html{
 	}
 	.message .content{
 		font-size: 18px;
+	}
+}
+@media screen and (max-width:768px) and (orientation:portrait){
+	.max-width{
+		max-width: 768px;
+	}
+	.max-width2{
+		max-width: 750px;
+	}
+	.navbar{
+		padding: 25px 0;
+		height: 75px;
+		width: 768px;
+	}
+	.navbar.sticky{
+		height:70px;
+	}
+	.navbar.sticky .logo h1{
+		font-size: 36px;
+	}
+	.navbar .logo h1{
+		font-size: 38px;
+	}
+	.navbar .logo img{
+		height: 45px;
+		padding-right: 5px;
+	}
+	.navbar .menu li a{
+		font-size: 16.5px;
+	}
+	.fa-inbox {
+		font-size: 18px;
+	}
+	.fa-sign-out-alt{
+		font-size: 18px;
+	}
+	.fa-sign-in-alt{
+		font-size: 18px;
+	}
+	.navbar-pages{
+		padding: 23px 0;
+		height: 78px;
+		max-width: 768px;
+	}
+	.navbar-pages .menu li a{
+		font-size: 16px;
+	}
+	.menu-bars{
+		display: inline-block;
+		z-index: 2000;
+		margin-top: -3%;
+	}
+	.menu-bars:hover{
+		color: #027ca1;
+		transition: ease-in-out 0.3s;
+	}
+	.menu-bars i.active::before{
+		content:"\f00d";
+	}
+	.navbar .menu{
+		position: fixed;
+		padding-left: 30px;
+		height: 100px;
+		width: 100%;
+		top: 0;
+		background: rgb(243, 242, 242);
+		text-align: center;
+		padding-top: 40px;
+		display: none;
+	}
+	.navbar .menu.active{
+		right: 0;
+		display: inline-block;
+	}
+	.navbar .menu .menu-right{
+		float: left;
+	}
+	.navbar .menu li{
+		display: inline-block;
+	}
+	.navbar .menu li a{
+		display: block;
+		margin: 10px 0;
+		font-size: 17px;
+	}
+	.navbar-pages .menu{
+		position: fixed;
+		padding-left: 30px;
+		height: 80px;
+		width: 100%;
+		top: 0;
+		background: rgb(243, 242, 242);
+		text-align: center;
+		justify-content: right;
+		padding-top: 23px;
+		display: none;
+	}
+	.navbar-pages .menu.active{
+		right: 0;
+		display: inline-block;
+	}
+	.navbar-pages .menu .menu-right{
+		float: left;
+	}
+	.navbar-pages .menu li{
+		display: inline-block;
+	}
+	.navbar-pages .menu li a{
+		display: block;
+		margin: 10px 0;
+		font-size: 17px;
+	}
+	.mainpage .max-width{
+		height: 55vh;
+	}
+	.mainpage .mainpage-left h1{
+		font-size: 55px;
+		line-height: 1.4em;
+	}
+	.mainpage .mainpage-right img{
+		height: 185px;
+	}
+	.mainpage .mainpage-right button{
+		width: 145px;
+		height: 46px;
+		font-size: 19px;
+	}
+	.fa-quote-left{
+		font-size: 15px;
+	}
+	.mainpage .quotediv p{
+		font-size: 18px;
+	}
+	.mainpage .quotediv span{
+		font-size: 14px;
+	}
+	.mainpage .quotediv{
+		margin-bottom: -3%;
+	}
+	.mainpage-bottom h5{
+		font-size: 20px;
+	}
+	.mainpage-bottom .img200px{
+		height: 170px;
+	}
+	.mainpage-bottom .img220px{
+		height: 180px;
+	}
+	.mainpage-bottom .img230px{
+		height: 190px;
+	}
+	.as-a-user h3{
+		font-size: 58px;
+	}
+	.as-a-user h5{
+		font-size: 20px;
+	}
+	.as-a-user .postdescription .postdesctitle{
+		font-size: 27px;
+	}
+	.as-a-user .postdescription .postdescdesc{
+		font-size: 18px;
+	}
+	.as-a-rater .ratedescription .ratedesctitle{
+		font-size: 27px;
+	}
+	.as-a-rater .ratedescription .ratedescdesc{
+		font-size: 18px;
+	}
+	.footer p{
+		font-size: 32px;
+	}
+	.footer-login a{
+		font-size: 17px;
+	}
+	.footer-register a{
+		font-size: 17px;
+	}
+	.ideaboard{
+		padding-top: 13%;
+	}
+	.leaderboard{
+		padding-top: 13%;
+	}
+	.categories{
+		padding-top: 13%;
+	}
+	.specificidea{
+		padding-top: 13%;
+	}
+	.specificidea .heading-right-btn button{
+		height: 34px;
+		font-size: 16px;
+		font-weight: 600;
+	}
+	.ideanotauthtrack{
+		width: 76px;
+	}
+	.ideanotauthlike{
+		width: 76px;
+		margin-right: 3px;
+	}
+	.approve{
+		width: 76px;
+		margin-right: -3px;
+	}
+	.approved{
+		width: 76px;
+		margin-right: -3px;
+	}
+	.favourite{
+		width: 77px;
+	}
+	.favourited{
+		width: 77px;
+	}
+	.connect{
+		width: 83px;
+	}
+	.connect a{
+		font-size: 16px;
+		font-weight: 600;
+	}
+	.fa-envelope-open-text {
+		font-size: 16px;
+	}
+	.fa-chart-line {
+		font-size: 16px;
+	}
+	.specificidea .fa-thumbs-up{
+		font-size: 16px;
+	}
+	#like-logononowner{
+		font-size: 22px;
+	}
+	#like-logoowner{
+		font-size: 22px;
+	}
+	.heading-right h5{
+		font-size: 30px;
+	}
+	.edit{
+		width: 70px;
+	}
+	.update{
+		width: 80px;
+	}
+	.fa-wrench{
+		font-size: 16px;
+	}
+	.fa-pen{
+		font-size: 16px;
+	}
+	.post{
+		padding-top: 13%;
+	}
+	.post form{
+		font-size: 21px;
+		width: 620px;
+	}
+	.max-width .post{
+		width: 400px;
+	}
+	.allchats{
+		padding-top: 15%;
+	}
+	.allchatheading h2{
+		font-size: 34px;
+	}
+	.allchatheadingroom h2{
+		font-size: 34px;
+	}
+}
+@media screen and (max-width:411px) and (orientation:portrait){
+	.max-width{
+		max-width: 411px;
+		padding: 0 30px;
+		width: 100vw;
+	}
+	.max-width2{
+		max-width: 411px;
+		padding: 10px 10px;
+		width: 100vw;
+	}
+	.navbar{
+		height: 65px;
+		max-width: 411px;
+		padding: 20px 0;
+	}
+	.navbar .logo{
+		padding-top: 2%;
+	}
+	.navbar .logo h1{
+		font-size: 32px;
+	}
+	.navbar .logo img{
+		height: 35px;
+		padding-right:7px;
+	}
+	.navbar .menu li a{
+		font-size: 13px;
+	}
+	.navbar .menu li:not(.idea-dropdown) a{
+		margin-left: 8px;
+		margin-top: 30px;
+	}
+	.navbar .menu{
+		padding-left: 12px;
+	}
+	.fa-inbox{
+		font-size: 15px;
+	}
+	.fa-sign-in-alt{
+		font-size: 15px;
+	}
+	.fa-sign-out-alt{
+		font-size: 15px;
+	}
+	.navbar-pages{
+		height: 73px;
+		padding: 20px 0;
+		max-width: 411px;
+	}
+	.navbar-pages .logo{
+		padding-top: 2%;
+	}
+	.navbar-pages .logo h1{
+		font-size: 32px;
+	}
+	.navbar-pages .logo img{
+		height: 35px;
+		padding-right:7px;
+	}
+	.navbar-pages .menu li a{
+		font-size: 13px;
+	}
+	.navbar-pages .menu li:not(.idea-dropdown) a{
+		margin-left: 8px;
+		margin-top: 30px;
+	}
+	.navbar-pages .menu{
+		padding-left: 12px;
+	}
+	.menu-bars{
+		margin-top: -10%;
+	}
+	.menu-bars i{
+		font-size: 15px;
+	}
+	.fa-inbox{
+		font-size: 13px;
+	}
+	.mainpage .max-width{
+		display: inline-block;
+	}
+	.mainpage .mainpage-left h1{
+		font-size: 38px;
+		line-height: 1.2em;
+		padding-top: 25%;
+		text-align: center;
+	}
+	.mainpage .mainpage-right img{
+		height: 0px;
+	}
+	.mainpage .mainpage-right{
+		display: flex;
+		margin-left: 3%;
+		padding-top: 0%;
+	}
+	.mainpage .mainpage-right button{
+		margin: 5px;
+	}
+	.fa-quote-left{
+		font-size: 13px;
+	}
+	.mainpage .quotediv p{
+		font-size: 17px;
+	}
+	.mainpage .quotediv span{
+		font-size: 14px;
+	}
+	.mainpage-bottom h3{
+		font-size: 40px;
+	}
+	.mainpage-bottom .firstrow{
+		display: inline-block;
+	}
+	.mainpage-bottom .secondrow{
+		display: inline-block;
+	}
+	.mainpage-bottom img{
+		margin: auto;
+	}
+	.mainpage-bottom #long2ndpic{
+		margin-left: -40px;
+	}
+	.mainpage-bottom .secondrow .divlastpic{
+		margin-top: 0px;
+	}
+	.as-a-user h3{
+		font-size: 45px;
+	}
+	.as-a-user h5{
+		width: 90%;
+	}
+	.as-a-user .postdescription{
+		display: inline-block;
+	}
+	.as-a-user .postdescription .image111{
+		width: 100%;
+		margin: auto;
+	}
+	.as-a-rater{
+		height: 100%;
+		padding: 20px;
+	}
+	.as-a-rater .ratedescription{
+		display: inline-block;
+		margin-top: 20%;
+		margin-right: 3%;
+	}
+	.as-a-rater .ratedescription .ratedesc{
+		text-align: right;
+		margin: auto;
+	}
+	.as-a-rater .ratedescription .image112{
+		width: 105%;
+	}
+	.as-a-rater .ratedescription .image113{
+		width: 100%;
+		margin: auto;
+		margin-left: -3%;
+	}
+	.ideaboard .idea1st .fa-crown{
+		color: #ffd700; 
+		font-size: 27px;
+	}
+	.ideaboard .idea2nd .fa-crown{
+		color: #BBC2CC; 
+		font-size: 25px;
+	}
+	.ideaboard .idea3rd .fa-crown{
+		color: #E4953C; 
+		font-size: 23px;
 	}
 }
