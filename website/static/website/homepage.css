@@ -589,7 +589,7 @@ html{
     display: table;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 15%;
+	padding-top: 11%;
 }
 .register .message{
 	color: darkred;
@@ -613,7 +613,7 @@ html{
 .register .form-group input{
 	padding-left: 3%;
 	font-size: 23px;
-	height: 5vh;
+	height: 65px;
 	width: 500px;
 }
 .register .register-btn{
@@ -636,7 +636,7 @@ html{
     display: table;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 15%;
+	padding-top: 11%;
 }
 .login .message{
 	color: darkred;
@@ -660,7 +660,7 @@ html{
 .login .form-group input{
 	padding-left: 3%;
 	font-size: 23px;
-	height: 5vh;
+	height: 65px;
 	width: 500px;
 }
 .login .login-btn{
@@ -1484,7 +1484,7 @@ html{
 
 /* styling chats page */
 .allchats {
-	padding-top: 11%;
+	padding-top: 8%;
 }
 .allchats h2{
 	font-size: 40px; 
@@ -1496,14 +1496,15 @@ html{
 	border: 1px solid rgba(219, 219, 219, 0.884);
 }
 .chatslists{
-	height: 77vh; 
-	overflow: scroll;
+	height: 73.5vh; 
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 .allchatheading {
 	background-color: rgb(240, 240, 240);
 	border: 1px solid rgba(219, 219, 219, 0.884);
 	box-shadow: 2px 2px rgb(197, 197, 197);
-	height: 7.9vh;
+	height: 90px;
 }
 .specificchat{
 	padding: 5% 4% 5% 4%;	
@@ -1548,7 +1549,7 @@ html{
 .chat {
 	float: right;
 	width: 65%;
-	height: 85.15vh;
+	height: 83vh;
 	margin: auto;
 	border: 1px solid rgba(219, 219, 219, 0.884);
 	text-align: center;
@@ -1562,14 +1563,14 @@ html{
 	background-color: rgb(240, 240, 240);
 	border: 1px solid rgba(219, 219, 219, 0.884);
 	box-shadow: 2px 2px rgb(197, 197, 197);
-	height: 7.9vh;
+	height: 90px;
 }
 .allchatheadingroom h2{
 	font-size: 40px; 
 	padding: 8% 0% 10% 7%;
 }
 .chatheading{
-	height: 7.9vh;
+	height: 90px;
 	background-color: rgb(248, 248, 248);
 	box-shadow: 1px 1px whitesmoke;
 	display: inline-flexbox;
@@ -1597,13 +1598,13 @@ html{
 	color: rgb(53, 0, 139);
 }
 .messages-area {
-	height: 71vh;
+	height: 65vh;
 	padding: 1% 1% 0% 1%;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
 .input-area{
-	height: 6vh;
+	height: 65px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -2172,14 +2173,15 @@ html{
 		width: 77px;
 	}
 	.connect{
-		width: 83px;
+		width: 88px;
+		margin-left: 1%;
 	}
 	.connect a{
 		font-size: 16px;
 		font-weight: 600;
 	}
 	.fa-envelope-open-text {
-		font-size: 16px;
+		font-size: 15px;
 	}
 	.fa-chart-line {
 		font-size: 16px;
@@ -2200,24 +2202,22 @@ html{
 		width: 70px;
 	}
 	.update{
-		width: 80px;
+		width: 82px;
 	}
 	.fa-wrench{
-		font-size: 16px;
+		font-size: 15px;
 	}
 	.fa-pen{
-		font-size: 16px;
+		font-size: 15px;
 	}
 	.post{
 		padding-top: 13%;
 	}
 	.post form{
 		font-size: 21px;
-		width: 620px;
+		width: 80vw;
 	}
-	.max-width .post{
-		width: 400px;
-	}
+	
 	.allchats{
 		padding-top: 15%;
 	}
@@ -2228,21 +2228,24 @@ html{
 		font-size: 34px;
 	}
 }
-@media screen and (max-width:411px) and (orientation:portrait){
+@media screen and (max-width:415px) and (orientation:portrait){
 	.max-width{
 		max-width: 411px;
 		padding: 0 30px;
 		width: 100vw;
+		margin: 0%;
 	}
 	.max-width2{
 		max-width: 411px;
 		padding: 10px 10px;
 		width: 100vw;
+		margin: 0%;
 	}
 	.navbar{
 		height: 65px;
 		max-width: 411px;
 		padding: 20px 0;
+		max-width: 100vw;
 	}
 	.navbar .logo{
 		padding-top: 2%;
@@ -2259,7 +2262,13 @@ html{
 	}
 	.navbar .menu li:not(.idea-dropdown) a{
 		margin-left: 8px;
-		margin-top: 30px;
+		margin-top: 0px;
+	}
+	.navbar .menu .menu-right{
+		margin-left: 150px;
+	}
+	.navbar-pages .menu .menu-right{
+		margin-left: 150px;
 	}
 	.navbar .menu{
 		padding-left: 12px;
@@ -2293,7 +2302,7 @@ html{
 	}
 	.navbar-pages .menu li:not(.idea-dropdown) a{
 		margin-left: 8px;
-		margin-top: 30px;
+		margin-top: 0px;
 	}
 	.navbar-pages .menu{
 		padding-left: 12px;
@@ -2305,7 +2314,10 @@ html{
 		font-size: 15px;
 	}
 	.fa-inbox{
-		font-size: 13px;
+		font-size: 15px;
+	}
+	#fa-inbox-pages{
+		font-size: 15px;
 	}
 	.mainpage .max-width{
 		display: inline-block;
@@ -2326,6 +2338,10 @@ html{
 	}
 	.mainpage .mainpage-right button{
 		margin: 5px;
+	}
+	.mainpage .mainpage-right .rate{
+		background-color: rgba(4, 4, 180, 0.938);
+		color: white;
 	}
 	.fa-quote-left{
 		font-size: 13px;
@@ -2399,5 +2415,338 @@ html{
 	.ideaboard .idea3rd .fa-crown{
 		color: #E4953C; 
 		font-size: 23px;
+	}
+	#mainpage-ideaboard h2{
+		font-size: 36px;
+	}
+	.ideaboard{
+		padding-top: 20%;
+	}
+	.ideaboard h2{
+		font-size: 34px;
+	}
+	.ideaboard .idea h4{
+		font-size: 26px;
+	}
+	.ideaboard .idea .idea-content{
+		max-height: 80px;
+	}
+	.ideaboard .idea .idea-content p::after{
+		height: 1.7em;
+	}
+	.ideaboard .idea-details .idea-category{
+		font-size: 15px;
+	}
+	.ideaboard .idea h6{
+		font-size: 18px;
+	}
+	.ideaboard .idea h5{
+		font-size: 18px;
+	}
+	.idea-details .fa-thumbs-up{
+		font-size: 19px;
+	}
+	.fa-comment{
+		font-size: 18px;
+	}
+	.fa-chart-line {
+		font-size: 19px;
+	}
+	.fa-wrench {
+		font-size: 19px;
+	}
+	.ideaboard .idea-timestamp li{
+		font-size: 13px;
+	}
+	.ideaboard .idea1st h4{
+		font-size: 26px;
+	}
+	.ideaboard .idea1st .idea-content{
+		max-height: 80px;
+	}
+	.ideaboard .idea1st .idea-content p::after{
+		height: 1.7em;
+	}
+	.ideaboard .idea1st h6{
+		font-size: 18px;
+	}
+	.ideaboard .idea1st h5{
+		font-size: 18px;
+	}
+	.ideaboard .idea2nd h4{
+		font-size: 26px;
+	}
+	.ideaboard .idea2nd .idea-content{
+		max-height: 80px;
+	}
+	.ideaboard .idea2nd .idea-content p::after{
+		height: 1.7em;
+	}
+	.ideaboard .idea2nd h6{
+		font-size: 18px;
+	}
+	.ideaboard .idea2nd h5{
+		font-size: 18px;
+	}
+	.ideaboard .idea3rd h4{
+		font-size: 26px;
+	}
+	.ideaboard .idea3rd .idea-content{
+		max-height: 80px;
+	}
+	.ideaboard .idea3rd .idea-content p::after{
+		height: 1.7em;
+	}
+	.ideaboard .idea3rd h6{
+		font-size: 18px;
+	}
+	.ideaboard .idea3rd h5{
+		font-size: 18px;
+	}
+	.categories{
+		padding-top: 20%;
+	}
+	.categories h2{
+		font-size: 36px;
+	}
+	.categories .category-name{
+		font-size: 20px;
+	}
+	.categories .category-name i{
+		font-size: 19px;
+		padding: 2%;
+	}
+	.post{
+		padding-top: 21%;
+	}
+	.post hr{
+		width: 80vw;
+	}
+	.post form{
+		font-size: 19px;
+		width:80vw;
+	}
+	.allchats{
+		padding-top: 23%;
+		display: inline-block;
+	}
+	.chatslist{
+		height: 30vh;
+		overflow: scroll;
+		width: 85vw;
+	}
+	.allchatheading h2{
+		font-size: 28px;
+	}
+	.allchatheadingroom h2{
+		font-size: 28px;
+	}
+	.specificchat .username{
+		font-size: 20px;
+	}
+	.specificchat .posttitle{
+		font-size: 18px;
+	}
+	.chat{
+		width: 85vw;
+		margin-top: 3%;
+		height: 55vh;
+	}
+	.messages-area{
+		height: 42vh;
+	}
+	.chatheading h4{
+		font-size: 25px;
+	}
+	.chatheading a{
+		font-size: 18px;
+	}
+	.message .sent-by{
+		font-size: 16px;
+	}
+	.message .sent-by span{
+		font-size: 13.5px;
+	}
+	.message .content{
+		font-size: 17.5px;
+	}
+	.specificidea{
+		padding-top: 16%;
+		width: 85vw;
+		max-width: 85vw;
+	}
+	.specificidea .specificidea-heading{
+		padding-left: 3vw;
+		display: inline-block;
+	}
+	.specificidea-heading .heading-left{
+		width: 85vw;
+		text-align: center;
+		align-items: center;
+	}
+	.specificidea .specificidea-heading .heading-left h1{
+		font-size: 26px;
+		margin-bottom: -5%;
+	}
+	.specificidea .specificidea-heading .heading-right{
+		display: flex;
+	}
+	.specificidea .specificidea-heading .heading-left{
+		width: 100%;
+	}
+	#like-logononowner{
+		margin-top: 4.5%;
+	}
+	#like-logoowner{
+		margin-top: 4.5%;
+	}
+	.specificidea .post{
+		padding-top: 18%;
+	}
+	.specificidea .post form{
+		width: 80vw;
+	}
+	.register{
+		padding-top: 23%;
+	}
+	.register h2{
+		font-size: 38px;
+	}
+	.register form input{
+		max-width: 85vw;
+	}
+	.register .form-group input{
+		font-size: 20px;
+	}
+	.register .register-btn{
+		height: 45px;
+		width: 100px;
+		font-size: 21px;
+	}
+	.register h6{
+		font-size: 20px;
+	}
+	.login{
+		padding-top: 23%;
+	}
+	.login h2{
+		font-size: 38px;
+	}
+	.login form input{
+		max-width: 85vw;
+	}
+	.login .form-group input{
+		font-size: 20px;
+	}
+	.login .login-btn{
+		height: 45px;
+		width: 100px;
+		font-size: 21px;
+	}
+	.login h6{
+		font-size: 20px;
+	}
+	.quotediv{
+		width: 80vw;
+		height: 80px;
+		margin-left: 4%;
+	}
+}
+@media screen and (max-width:375px) and (orientation:portrait){
+	.max-width{
+		max-width: 375px;
+	}
+	.max-width2{
+		max-width: 375px;
+	}
+	.mainpage .mainpage-right{
+		margin-left: -1.2%;
+	}
+	.quotediv{
+		width: 80vw;
+		height: 80px;
+		margin-left: 4%;
+	}
+	.fa-quote-left{
+		padding-bottom: 2%;
+		font-size: 11px;
+	}
+}
+@media screen and (max-width:812px) and (orientation:landscape){
+	.max-width{
+		max-width: 100vw;
+	}
+	.max-width2{
+		max-width: 100vw;
+	}
+	.mainpage .max-width{
+		height: 700px;
+	}
+	.as-a-user{
+		height: 750px;
+	}
+	.as-a-rater{
+		height: 700px;
+	}
+	.allchats{
+		height: 500px;
+		padding-top: 16%;
+		padding-bottom: 3%;
+	}
+	.chatslists{
+		height: 427px;
+	}
+	.allchatheading{
+		height: 70px;
+	}
+	.allchatheadingroom{
+		height: 70px;
+	}
+	.chat{
+		height: 500px;
+	}
+	.chatheading{
+		height: 70px;
+	}
+	.messages-area{
+		height: 400px;
+	}
+	.input-area{
+		height: 80px;
+	}
+	.ideaboard{
+		padding-top: 13%;
+	}
+	.leaderboard{
+		padding-top: 13%;
+	}
+	.categories{
+		padding-top: 13%;
+	}
+}
+@media screen and (min-device-width:1200px) and (max-device-width:1600px) and (-webkit-min-device-pixel-ratio: 1) {
+	.navbar{
+		padding: 30px 0;
+		height: 80px;
+	}
+	.navbar.sticky{
+		height: 70px;
+	}
+	.mainpage .max-width{
+		height: 700px;
+	}
+	.as-a-user{
+		height: 140vh;
+		padding-top: 0%;
+	}
+	.as-a-user h3{
+		font-size: 60px;
+	}
+	.as-a-user h5 {
+		font-size: 23px;
+		padding-bottom: 3%;
+	}
+	.as-a-rater{
+		height: 110vh;
 	}
 }

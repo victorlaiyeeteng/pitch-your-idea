@@ -21,7 +21,7 @@
                     <div class="allchatheadingroom">
                         <h2>All Chats</h2>
                     </div>
-                    <div>
+                    <div class="chatslists">
                         {% for chat in chats %}
                             {% if chat.visitor.id != request.user.id or chat.owner.id != request.user.id %}
                                 {% if request.user == chat.owner %}

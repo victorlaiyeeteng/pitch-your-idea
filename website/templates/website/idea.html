@@ -123,60 +123,62 @@
             <br>
             <br>
             <p class="specificideatimestamp">{{post.editedtrue}} {{ post.timestamp|naturaltime }}</p>
-            <hr class="betweenideaandupdates">
-            <br>
-            <div class="subposts">
-                <h2>Updates</h2>
+            {% if subposts %}
+                <hr class="betweenideaandupdates">
                 <br>
-                {% for subpost in subposts %}
-                    <div class="subpost">
-                        <h3>{{ subpost.title }}</h3>
-                        <div class="subpostbtn">
-                            <a href="{% url 'editsubpost' subpost.id %}" title="Edit" class="subpostedit"><i class="fas fa-edit"></i></a>
-                            <a href="{% url 'deletesubpost' subpost.id %}" title="Delete" class="subpostdelete"><i class="fas fa-trash"></i></a>
+                <div class="subposts">
+                    <h2>Updates</h2>
+                    <br>
+                    {% for subpost in subposts %}
+                        <div class="subpost">
+                            <h3>{{ subpost.title }}</h3>
+                            {% if subpost.user == request.user %}
+                                <div class="subpostbtn">
+                                    <a href="{% url 'editsubpost' subpost.id %}" title="Edit" class="subpostedit"><i class="fas fa-edit"></i></a>
+                                    <a href="{% url 'deletesubpost' subpost.id %}" title="Delete" class="subpostdelete"><i class="fas fa-trash"></i></a>
+                                </div>
+                            {% endif %}
+                            <p>{{ subpost.post|safe }}</p>
+                            {% if subpost.image1 %}
+                                <img src="{{ subpost.image1.url }}" alt="" id="idea-image1" class="idea-image">
+                                <div id="myModal1" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img01" src="{{ subpost.image1.url }}">
+                                </div>
+                            {% endif %}
+                            {% if subpost.image2 %}
+                                <img src="{{ subpost.image2.url }}" alt="" id="idea-image2" class="idea-image">
+                                <div id="myModal2" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img01" src="{{ subpost.image2.url }}">
+                                </div>
+                            {% endif %}
+                            {% if subpost.image3 %}
+                                <img src="{{ subpost.image3.url }}" alt="" id="idea-image3" class="idea-image">
+                                <div id="myModal3" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img01" src="{{ subpost.image3.url }}">
+                                </div>
+                            {% endif %}
+                            {% if subpost.image4 %}
+                                <img src="{{ subpost.image4.url }}" alt="" id="idea-image4" class="idea-image">
+                                <div id="myModal4" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img01" src="{{ subpost.image4.url }}">
+                                </div>
+                            {% endif %}
+                            {% if subpost.image5 %}
+                                <img src="{{ subpost.image5.url }}" alt="" id="idea-image5" class="idea-image">
+                                <div id="myModal5" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img01" src="{{ subpost.image5.url }}">
+                                </div>
+                            {% endif %}
+                            <p class="subposttimestamp">{{subpost.editedtrue}} {{ subpost.timestamp|naturaltime }}</p>
                         </div>
-                        <p>{{ subpost.post|safe }}</p>
-                        {% if subpost.image1 %}
-                            <img src="{{ subpost.image1.url }}" alt="" id="idea-image1" class="idea-image">
-                            <div id="myModal1" class="modal">
-                                <span class="close">&times;</span>
-                                <img class="modal-content" id="img01" src="{{ subpost.image1.url }}">
-                            </div>
-                        {% endif %}
-                        {% if subpost.image2 %}
-                            <img src="{{ subpost.image2.url }}" alt="" id="idea-image2" class="idea-image">
-                            <div id="myModal2" class="modal">
-                                <span class="close">&times;</span>
-                                <img class="modal-content" id="img01" src="{{ subpost.image2.url }}">
-                            </div>
-                        {% endif %}
-                        {% if subpost.image3 %}
-                            <img src="{{ subpost.image3.url }}" alt="" id="idea-image3" class="idea-image">
-                            <div id="myModal3" class="modal">
-                                <span class="close">&times;</span>
-                                <img class="modal-content" id="img01" src="{{ subpost.image3.url }}">
-                            </div>
-                        {% endif %}
-                        {% if subpost.image4 %}
-                            <img src="{{ subpost.image4.url }}" alt="" id="idea-image4" class="idea-image">
-                            <div id="myModal4" class="modal">
-                                <span class="close">&times;</span>
-                                <img class="modal-content" id="img01" src="{{ subpost.image4.url }}">
-                            </div>
-                        {% endif %}
-                        {% if subpost.image5 %}
-                            <img src="{{ subpost.image5.url }}" alt="" id="idea-image5" class="idea-image">
-                            <div id="myModal5" class="modal">
-                                <span class="close">&times;</span>
-                                <img class="modal-content" id="img01" src="{{ subpost.image5.url }}">
-                            </div>
-                        {% endif %}
-                        <p class="subposttimestamp">{{subpost.editedtrue}} {{ subpost.timestamp|naturaltime }}</p>
-                        {% empty %}
-                        <p class="subpostnoupdates">No updates by {{post.user.username}} yet</p>
-                    </div>
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
             <hr>
             <div class="comments">
                 <h2>Comments...</h2>
