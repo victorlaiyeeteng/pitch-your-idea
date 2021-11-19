@@ -25,6 +25,7 @@
                         <br>
                         <li class="ideaparentli">
                             <h4>{{ post.title }}</h4>
+                            <p>-{{ post.user.username }}</p>
                             <div class='idea-content'><p>{{ post.post|safe }}</p></div>
                             <ul class='idea-details'>
                                     <li><h6 class="idea-category">{{ post.category }}</h6></li>

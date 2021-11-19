@@ -750,9 +750,13 @@ html{
 	list-style: none; 
 	color: black;
 }
+
 .ideaboard .idea h4{
 	padding: 0% 0% 0.5% 1%;
 	font-size: 30px;
+}
+.ideaboard .idea p{
+	padding: 0% 0% 0.5% 1.5%;
 }
 .ideaboard .idea .idea-content {
 	position: relative;
