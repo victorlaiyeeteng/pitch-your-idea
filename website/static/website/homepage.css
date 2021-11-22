@@ -2073,11 +2073,12 @@ html{
 		font-size: 17px;
 	}
 	.mainpage .max-width{
-		height: 55vh;
+		height: 65vh;
+		margin-left: 2%;
 	}
 	.mainpage .mainpage-left h1{
-		font-size: 55px;
-		line-height: 1.4em;
+		font-size: 52px;
+		line-height: 1.2em;
 	}
 	.mainpage .mainpage-right img{
 		height: 185px;
