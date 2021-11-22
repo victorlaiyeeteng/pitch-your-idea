@@ -1951,6 +1951,15 @@ html{
 	.allchats h2{
 		padding: 4% 0% 16% 7%;
 	}
+	.chatslists{
+		height: 65vh;
+	}
+	.chat{
+		height: 75vh;
+	}
+	.messages-area{
+		height: 60vh;
+	}
 	.chatheading h4{
 		font-size: 26px;
 		padding-top: 0.2%;
