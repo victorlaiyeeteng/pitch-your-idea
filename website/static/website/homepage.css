@@ -2754,9 +2754,9 @@ html{
 		padding-bottom: 3%;
 	}
 	.as-a-rater{
-		height: 800px;
+		height: 1000px;
 	}
-	.as-a-rater{
-		max-height: 600px;
+	.as-a-rater img{
+		max-height: 700px;
 	}
 }
