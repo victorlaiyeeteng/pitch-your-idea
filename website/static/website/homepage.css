@@ -2744,7 +2744,7 @@ html{
 		padding-top: 0%;
 	}
 	.as-a-user img{
-		object-fit: cover;
+		height: 500px;
 	}
 	.as-a-user h3{
 		font-size: 60px;
@@ -2754,9 +2754,9 @@ html{
 		padding-bottom: 3%;
 	}
 	.as-a-rater{
-		height: 1200px;
+		height: 1000px;
 	}
-	.as-a-rater img{
-		object-fit: cover;
+	.as-a-rater .image113{
+		height: 665px;;
 	}
 }
