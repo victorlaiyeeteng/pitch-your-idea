@@ -2759,4 +2759,7 @@ html{
 	.as-a-rater .image113{
 		max-height: 850px;
 	}
+	.modal{
+		padding-top: 150px;
+	}
 }
