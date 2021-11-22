@@ -1689,7 +1689,7 @@ html{
 	margin-right: -5px;
 }
 
-@media (max-width:1366px){
+@media only screen and (min-device-width: 1024px) and (max-device-width:1366px) and (-webkit-min-device-pixel-ratio: 2){
 	.max-width{
 		max-width: 1330px;
 	}
@@ -1710,7 +1710,7 @@ html{
 	}
 }
 
-@media screen and (max-width:1024px) and (orientation:portrait){
+@media screen and (min-device-width:1024px) and (max-device-width:1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2){
 	.max-width2{
 		zoom: 110%;
 	}
