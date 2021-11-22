@@ -1955,14 +1955,14 @@ html{
 		height: 65vh;
 	}
 	.chat{
-		height: 75vh;
+		height: 77vh;
 	}
 	.messages-area{
-		height: 60vh;
+		height: 57vh;
 	}
 	.chatheading h4{
 		font-size: 26px;
-		padding-top: 0.2%;
+		padding-top: 1%;
 	}
 	.chatheading a{
 		font-size: 19px;
