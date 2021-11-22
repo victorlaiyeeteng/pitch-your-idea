@@ -2740,14 +2740,8 @@ html{
 		height: 700px;
 	}
 	.as-a-user{
-		height: 1200px;
+		height: 1000px;
 		padding-top: 0%;
-	}
-	.as-a-user img{
-		max-height: 700px;
-		max-width: 685px;
-		width: auto;
-		height: auto;
 	}
 	.as-a-user h3{
 		font-size: 60px;
@@ -2757,12 +2751,6 @@ html{
 		padding-bottom: 3%;
 	}
 	.as-a-rater{
-		height: 1000px;
-	}
-	.as-a-rater .image113{
-		max-height: 800px;
-		max-width: 550px;
-		width: auto;
-		height: auto;
+		height: 800px;
 	}
 }
