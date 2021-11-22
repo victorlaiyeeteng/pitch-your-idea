@@ -2740,7 +2740,7 @@ html{
 		height: 700px;
 	}
 	.as-a-user{
-		height: 140vh;
+		height: 1200px;
 		padding-top: 0%;
 	}
 	.as-a-user h3{
@@ -2751,6 +2751,6 @@ html{
 		padding-bottom: 3%;
 	}
 	.as-a-rater{
-		height: 110vh;
+		height: 1200px;
 	}
 }
