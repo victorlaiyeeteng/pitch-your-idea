@@ -1893,7 +1893,7 @@ html{
 		font-size: 18px;
 	}
 	.mainpage .mainpage-left h1{
-		font-size: 20px;
+		font-size: 60px;
 		line-height: 1.5em;
 	}
 	.mainpage .mainpage-right img{
@@ -2073,12 +2073,11 @@ html{
 		font-size: 17px;
 	}
 	.mainpage .max-width{
-		height: 65vh;
-		margin-left: 2%;
+		height: 55vh;
 	}
 	.mainpage .mainpage-left h1{
-		font-size: 52px;
-		line-height: 1.2em;
+		font-size: 55px;
+		line-height: 1.4em;
 	}
 	.mainpage .mainpage-right img{
 		height: 185px;
