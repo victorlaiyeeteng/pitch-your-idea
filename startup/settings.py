@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'storages',
 ]
 
@@ -156,14 +155,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #AWS
 
-# AWS_ACCESS_KEY_ID = 'AKIARX2646LJPSA7ZVYE'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'pitchyouridea-bucket'
+AWS_ACCESS_KEY_ID = 'AKIARX2646LJPSA7ZVYE'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'pitchyouridea-bucket'
 
-# AWS_S3_FILE_OVERWRITE = False
-# AWS_DEFAULT_ACL = None
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
-# AWS_S3_HOST = "s3.ap-southeast-1.amazon.aws.com"
-# AWS_S3_REGION_NAME = 'ap-southeast-1'
+AWS_S3_HOST = "s3.ap-southeast-1.amazon.aws.com"
+AWS_S3_REGION_NAME = 'ap-southeast-1'
