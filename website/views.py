@@ -112,7 +112,7 @@ def post(request):
             form.instance.user = request.user
             saved_form = form.save()
             saved_id = saved_form.pk
-            admin = User.objects.get(username='pitchyouridea')
+            admin = User.objects.get(username='Admin-PitchYourIdea')
             defcomment = Comment(user=admin, post=Post.objects.get(pk=saved_id), content='Have any queries about this idea? Leave your questions or opinions here to aid the improvement of the idea...', timestamp=datetime.now())
             defcomment.save()
             Post.objects.filter(id=saved_id).update(editedtrue='Posted')
