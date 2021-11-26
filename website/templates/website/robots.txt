@@ -1,0 +1,7 @@
+User-Agent: *
+
+Disallow: 
+
+Sitemap: https://pitchyouridea.herokuapp.com/sitemap.xml
+
+
