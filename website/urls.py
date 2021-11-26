@@ -4,7 +4,15 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import *
 from .views import *
+
+sitemaps = {
+    'static': StaticViewSitemap
+}
+
+
 urlpatterns = [
     path("", views.index, name="index"), 
     path("login", views.login_view, name="login"),
@@ -30,6 +38,7 @@ urlpatterns = [
     path("allchats", views.allchats, name="allchats"),
     path("<int:post_id>/<int:owner_id>/<int:visitor_id>", views.chatroom, name="chatroom"),
     path("ajax/<int:post_id>/<int:pk>/", views.ajax_load_messages, name="chatroom-ajax"), 
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
